@@ -1,0 +1,16 @@
+pkgbase = deepin-wine-qq
+	pkgdesc = Deepin Wine QQ 8.9.
+	pkgver = 8.9.19983deepin18
+	pkgrel = 2
+	url = http://im.qq.com/
+	arch = i686
+	arch = x86_64
+	license = Proprietary
+	makedepends = tar
+	depends = deepin-wine
+	noextract = deepin-wine-qq_8.9.19983deepin18_i386.deb
+	source = https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/deepin-wine-qq/deepin-wine-qq_8.9.19983deepin18_i386.deb
+	md5sums = SKIP
+
+pkgname = deepin-wine-qq
+
