@@ -5,7 +5,7 @@
 pkgname=deepin-wine-qq
 pkgver=8.9.6
 deepinqqver=8.9.19983deepin19
-pkgrel=1
+pkgrel=2
 pkgdesc="Latest Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
@@ -15,7 +15,7 @@ conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://mirrors.ustc.edu.cn/deepin"
 source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqver}_i386.deb"
-  "http://dldir1.qq.com/qqfile/qq/QQ${pkgver}/2242/QQ${pkgver}.exe"
+  "http://dldir1.qq.com/qqfile/qq/QQ${pkgver}/22427/QQ${pkgver}.exe"
   "run.sh"
   "reg_files.tar.bz2"
   "update.policy")
