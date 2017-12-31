@@ -15,12 +15,12 @@ conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://mirrors.ustc.edu.cn/deepin"
 source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqver}_i386.deb"
-  "http://dldir1.qq.com/qqfile/qq/QQ${pkgver}/22427/QQ${pkgver}.exe"
+  "https://dldir1.qq.com/qqfile/qq/QQ${pkgver}/22427/QQ${pkgver}.exe"
   "run.sh"
   "reg_files.tar.bz2"
   "update.policy")
 md5sums=('e727b3dc87f2533aa36b489f38806060'
-  '61a3a7d936e5f00fc220a4366088325d'
+  '1fcdac953d35146b9f6afe04287e26a8'
   '309746957cfcbeb87b7223b01a6e0317'
   'ebde755e3bd213550f5ccc69d3192060'
   'a66646b473a3fbad243ac1afd64da07a')
