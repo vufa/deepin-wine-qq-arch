@@ -2,6 +2,8 @@
 
 把deepin的QQ容器移植到Archlinux
 
+构建状态: ![https://github.com/countstarlight/deepin-wine-qq](https://travis-ci.org/countstarlight/deepin-wine-qq.svg?branch=master)
+
 感谢:
 * @[wszqkzqk](https://github.com/wszqkzqk) 的 [wszqkzqk-deepin-wine-tim-arch](https://github.com/wszqkzqk/wszqkzqk-deepin-wine-tim-arch)
 

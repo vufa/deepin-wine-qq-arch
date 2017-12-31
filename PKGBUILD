@@ -5,7 +5,7 @@
 pkgname=deepin-wine-qq
 pkgver=8.9.6
 deepinqqver=8.9.19983deepin19
-pkgrel=0
+pkgrel=1
 pkgdesc="Latest Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
