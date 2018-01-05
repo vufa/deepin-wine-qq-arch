@@ -5,7 +5,7 @@
 pkgname=deepin-wine-qq
 pkgver=8.9.6
 deepinqqver=8.9.19983deepin19
-pkgrel=2
+pkgrel=3
 pkgdesc="Latest Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
@@ -35,6 +35,7 @@ build() {
   msg "Removing original outdated QQ directory ..."
   rm -r "${srcdir}/deepinqqdir/drive_c/Program Files/Tencent/QQ"
   msg "Adding config files and fonts"
+  tar -jxvf reg_files.tar.bz2 -C "${srcdir}/"
   cp userdef.reg "${srcdir}/deepinqqdir/userdef.reg"
   cp system.reg "${srcdir}/deepinqqdir/system.reg"
   cp update.policy "${srcdir}/deepinqqdir/update.policy"
@@ -54,4 +55,9 @@ package() {
   install -m644 "${srcdir}/files.7z" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
   install -m755 "${srcdir}/run.sh" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
   install -m644 "${srcdir}/QQ$pkgver.exe" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
+  echo "$(tput setaf 1)$(tput setab 7)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$(tput sgr 0)"
+  echo "$(tput setaf 1)$(tput setab 7)!!!!!                                 !!!!$(tput sgr 0)"
+  echo "$(tput setaf 1)$(tput setab 7)!!!!!NEED TO REBOOT AFTER INSTALLATION!!!!$(tput sgr 0)"
+  echo "$(tput setaf 1)$(tput setab 7)!!!!!                                 !!!!$(tput sgr 0)"
+  echo "$(tput setaf 1)$(tput setab 7)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$(tput sgr 0)"
 }
