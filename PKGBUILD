@@ -4,7 +4,7 @@
 
 pkgname=deepin-wine-qq
 pkgver=8.9.6
-deepinqqver=8.9.19983deepin19
+deepinqqver=8.9.19983deepin20
 pkgrel=3
 pkgdesc="Latest Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
@@ -19,7 +19,7 @@ source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqve
   "run.sh"
   "reg_files.tar.bz2"
   "update.policy")
-md5sums=('e727b3dc87f2533aa36b489f38806060'
+md5sums=('9d6fcd0a6086c068b9776a62a67f077d'
   '1fcdac953d35146b9f6afe04287e26a8'
   '309746957cfcbeb87b7223b01a6e0317'
   'ebde755e3bd213550f5ccc69d3192060'
@@ -29,7 +29,7 @@ build() {
   msg "Extracting DPKG package ..."
   mkdir -p "${srcdir}/dpkgdir"
   tar -xvf data.tar.xz -C "${srcdir}/dpkgdir"
-  sed "s/\(Categories.*$\)/\1Network;/" -i "${srcdir}/dpkgdir/usr/local/share/applications/deepin.com.qq.im.desktop"
+  sed "s/\(Categories.*$\)/\1Network;/" -i "${srcdir}/dpkgdir/usr/share/applications/deepin.com.qq.im.desktop"
   msg "Extracting Deepin Wine QQ archive ..."
   7z x -aoa "${srcdir}/dpkgdir/opt/deepinwine/apps/Deepin-QQ/files.7z" -o"${srcdir}/deepinqqdir"
   msg "Removing original outdated QQ directory ..."
@@ -49,7 +49,7 @@ build() {
 package() {
   msg "Preparing icons ..."
   install -d "${pkgdir}/usr/share"
-  cp -a ${srcdir}/dpkgdir/usr/local/share/* "${pkgdir}/usr/share/"
+  cp -a ${srcdir}/dpkgdir/usr/share/* "${pkgdir}/usr/share/"
   msg "Copying QQ to /opt/deepinwine/apps/Deepin-QQ ..."
   install -d "${pkgdir}/opt/deepinwine/apps/Deepin-QQ"
   install -m644 "${srcdir}/files.7z" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
