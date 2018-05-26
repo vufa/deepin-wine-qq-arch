@@ -10,7 +10,8 @@ WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
 APPVER="8.9.6"
 APPTAR="files.7z"
-PACKAGENAME="deepin.com.qq.im"
+PACKAGENAME="com.qq.im"
+WINE_CMD="wine"
 
 HelpApp()
 {
@@ -26,7 +27,10 @@ CallApp()
 		touch $WINEPREFIX/reinstalled
 		env WINEPREFIX=$WINEPREFIX wine $APPDIR/QQ$APPVER.exe
 	else
-		bash "$WINEPREFIX/drive_c/deepin/EnvInit.sh"
+		#Support use native file dialog
+        export ATTACH_FILE_DIALOG=1
+
+        env WINEPREFIX="$WINEPREFIX" $WINE_CMD "c:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe" &
 	fi
 }
 ExtractApp()

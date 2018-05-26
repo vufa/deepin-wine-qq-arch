@@ -1,17 +1,21 @@
-# 在Archlinux及其衍生发行版上运行最新的Tencent QQ
+# 在Archlinux及衍生发行版上运行QQ
 
-把deepin的QQ容器移植到Archlinux
+Deepin打包的QQ容器移植到Archlinux
 
 构建状态: ![https://github.com/countstarlight/deepin-wine-qq](https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master)
 
 感谢:
+
+* [Wuhan Deepin Technology Co.,Ltd.](http://www.deepin.org/)
+
+
 * @[wszqkzqk](https://github.com/wszqkzqk) 的 [wszqkzqk-deepin-wine-tim-arch](https://github.com/wszqkzqk/wszqkzqk-deepin-wine-tim-arch)
 
 * @[ssfdust](https://github.com/ssfdust) 的 [wszqkzqk-deepin-wine-tim-arch](https://github.com/ssfdust/wszqkzqk-deepin-wine-tim-arch)
 
-存在如下bug：
-  * 1.无法视频通话
-  * 2.无法记住密码
+存在如下问题：
+  * 1.不能视频通话
+  * 2.不能记住密码
 
 ## 安装
 * 1.已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可直接安装:
