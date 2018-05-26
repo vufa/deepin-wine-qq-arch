@@ -1,5 +1,5 @@
 pkgbase = deepin-wine-qq
-	pkgdesc = Latest Tencent QQ (com.qq.im) on Deepin Wine For Archlinux
+	pkgdesc = Tencent QQ (com.qq.im) on Deepin Wine For Archlinux
 	pkgver = 8.9.6
 	pkgrel = 3
 	url = http://im.qq.com/
