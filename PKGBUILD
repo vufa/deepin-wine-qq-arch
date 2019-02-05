@@ -3,7 +3,7 @@
 # Maintainer: ssfdust <ssfdust@gmail.com>
 
 pkgname=deepin-wine-qq
-pkgver=8.9.6
+pkgver=9.0.9_1
 deepinqqver=8.9.19983deepin23
 pkgrel=3
 pkgdesc="Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
@@ -15,14 +15,14 @@ conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://mirrors.ustc.edu.cn/deepin"
 source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqver}_i386.deb"
-  "https://dldir1.qq.com/qqfile/qq/QQ${pkgver}/22427/QQ${pkgver}.exe"
+  "https://qd.myapp.com/myapp/qqteam/pcqq/QQ${pkgver}.exe"
   "run.sh"
   "reg_files.tar.bz2"
   "update.policy")
 md5sums=('5135313eb131feeb6fef613ba02804cf'
-  '1fcdac953d35146b9f6afe04287e26a8'
-  'b303bc01a3f81198cf41acdb8b81ea18'
-  'ebde755e3bd213550f5ccc69d3192060'
+  'a6273221731e7d253d6273c5de452e72'
+  '6440495c91b01a2e23bbaeda2592ca63'
+  '6675c8950e976b1ca01fd6001aa79523'
   'a66646b473a3fbad243ac1afd64da07a')
 
 build() {
