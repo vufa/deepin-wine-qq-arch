@@ -1,6 +1,6 @@
 # 在Archlinux及衍生发行版上运行QQ
 
-Deepin打包的QQ容器移植到Archlinux
+Deepin打包的QQ容器移植到Archlinux，包含定制的注册表配置，QQ安装包替换为官方最新
 
 构建状态: [![travis-ci](https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master)](https://travis-ci.org/countstarlight/deepin-wine-qq-arch)
 
