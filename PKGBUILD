@@ -3,26 +3,26 @@
 # Maintainer: ssfdust <ssfdust@gmail.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.0.9_1
+pkgver=9.0.9.24445
 deepinqqver=8.9.19983deepin23
-pkgrel=4
+pkgrel=5
 pkgdesc="Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
 license=('custom')
-depends=('p7zip' 'wine' 'wine-mono' 'wine_gecko' 'xorg-xwininfo' 'xdotool' 'wqy-microhei' 'adobe-source-han-sans-cn-fonts' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
+depends=('p7zip' 'wine' 'wine-mono' 'wine_gecko' 'xorg-xwininfo' 'xdotool' 'wqy-microhei' 'adobe-source-han-sans-cn-fonts' 'adobe-source-han-serif-cn-fonts' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://mirrors.ustc.edu.cn/deepin"
 source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqver}_i386.deb"
-  "https://qd.myapp.com/myapp/qqteam/pcqq/QQ${pkgver}.exe"
+  "https://dldir1.qq.com/qqfile/qq/PCQQ9.0.9/24445/QQ${pkgver}.exe"
   "run.sh"
   "reg_files.tar.bz2"
   "update.policy")
 md5sums=('5135313eb131feeb6fef613ba02804cf'
-  'a6273221731e7d253d6273c5de452e72'
-  '6440495c91b01a2e23bbaeda2592ca63'
-  '44291a46887c0f9107a97c4ddf0c8d63'
+  '94f2c620f4fa50ace14fae0f903a3547'
+  '1f1814fcfd876c4b4468967ec0e6c107'
+  'a68c3271fa4858d956aac29ade6c602e'
   'a66646b473a3fbad243ac1afd64da07a')
 
 build() {
@@ -42,6 +42,7 @@ build() {
   cp user.reg "${srcdir}/deepinqqdir/user.reg"
   ln -sf "/usr/share/fonts/wenquanyi/wqy-microhei/wqy-microhei.ttc" "${srcdir}/deepinqqdir/drive_c/windows/Fonts/wqy-microhei.ttc"
   ln -sf "/usr/share/fonts/adobe-source-han-sans/SourceHanSansCN-Medium.otf" "${srcdir}/deepinqqdir/drive_c/windows/Fonts/SourceHanSansCN-Medium.otf"
+  ln -sf "/usr/share/fonts/adobe-source-han-serif/SourceHanSerifCN-Medium.otf" "${srcdir}/deepinqqdir/drive_c/windows/Fonts/SourceHanSerifCN-Medium.otf"
   msg "Repackaging app archive ..."
   7z a -t7z -r "${srcdir}/files.7z" "${srcdir}/deepinqqdir/*"
 }
@@ -55,9 +56,4 @@ package() {
   install -m644 "${srcdir}/files.7z" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
   install -m755 "${srcdir}/run.sh" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
   install -m644 "${srcdir}/QQ$pkgver.exe" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
-  echo "$(tput setaf 1)$(tput setab 7)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$(tput sgr 0)"
-  echo "$(tput setaf 1)$(tput setab 7)!!!!!                                 !!!!$(tput sgr 0)"
-  echo "$(tput setaf 1)$(tput setab 7)!!!!!NEED TO REBOOT AFTER INSTALLATION!!!!$(tput sgr 0)"
-  echo "$(tput setaf 1)$(tput setab 7)!!!!!                                 !!!!$(tput sgr 0)"
-  echo "$(tput setaf 1)$(tput setab 7)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$(tput sgr 0)"
 }

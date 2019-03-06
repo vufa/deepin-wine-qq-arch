@@ -14,13 +14,21 @@ Deepin打包的QQ容器移植到Archlinux，包含定制的注册表配置，QQ�
 * [@ssfdust](https://github.com/ssfdust) 的 [wszqkzqk-deepin-wine-tim-arch](https://github.com/ssfdust/wszqkzqk-deepin-wine-tim-arch)
 
 存在如下问题：
-  * 1.不能视频通话
-  * 2.不能记住密码
+
+- [ ] 1.不能视频通话
+- [ ] 2.不能记住密码
+- [ ] 3.网络连接状态改变后不能重连: [issue19](https://github.com/countstarlight/deepin-wine-tim-arch/issues/19)
 
 ## 安装
-* 1.已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可直接安装:
+* 1.已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay/yaourt` 安装:
 ```shell
-yaourt deepin-wine-qq
+yay -S deepin-wine-qq
+```
+
+如果添加了archlinuxcn源，这会直接从源里安装，源相比AUR仓库有一定的延迟，或选择从AUR仓库安装:
+
+```shell
+yay deepin-wine-qq
 ```
 
 * 2.手动安装
@@ -42,5 +50,6 @@ yaourt deepin-wine-qq
 * 2.使用全局截图快捷键和解决Gnome上窗口化问题，参见[issue2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)
 ## 更新日志
 
+* 2019-03-06 QQ-9.0.9.24445
 * 2019-02-05 QQ-9.0.9_1
 * 2017-12-31 QQ-8.9.6
