@@ -42,14 +42,24 @@ yay deepin-wine-qq
 ```
 
 * 运行开始菜单中创建的QQ，点击立即安装
+
 * 安装完可直接启动，以后启动时无需安装
+
 * **前几次运行时可能会提示 "qq安全组件异常"，尝试重启系统**
-* 默认使用文泉驿微米黑(`wqy-microhei`)字体，要使用其他字体，如 微软雅黑或者微软宋体放进`～/.deepinwine/Deepin-QQ/drive_c/windows/Fonts`中。
+
+* 微软雅黑用思源黑体(`adobe-source-han-sans-cn-fonts`)替代，
+
+  宋体用思源宋体(`adobe-source-han-serif-cn-fonts`)替代，
+
+  其余中文字体用文泉驿微米黑(`wqy-microhei`)
 ## 常见问题
 * 1.解决在 2k/4k 屏幕下字体和图标都非常小, 参见[issue1](https://github.com/countstarlight/deepin-wine-tim-arch/issues/1)
 * 2.使用全局截图快捷键和解决Gnome上窗口化问题，参见[issue2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)
+
 ## 更新日志
 
+* 2019-03-18 QQ-9.1.0.24712
 * 2019-03-06 QQ-9.0.9.24445
 * 2019-02-05 QQ-9.0.9_1
 * 2017-12-31 QQ-8.9.6
+
