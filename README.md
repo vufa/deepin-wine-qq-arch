@@ -45,13 +45,31 @@ yay deepin-wine-qq
 
 * 安装完可直接启动，以后启动时无需安装
 
-* **前几次运行时可能会提示 "qq安全组件异常"，尝试重启系统**
+* **前几次运行时可能会提示 "qq安全组件异常"，等一会再运行或重启一下系统**
 
-* 微软雅黑用思源黑体(`adobe-source-han-sans-cn-fonts`)替代，
+## 字体
 
-  宋体用思源宋体(`adobe-source-han-serif-cn-fonts`)替代，
+默认使用文泉驿微米黑(`wqy-microhei`)字体，目前有字体虚化、模糊问题，可以使用Windows平台常用字体，直接将字体文件或字体链接文件放置到字体文件夹就会生效，不会影响系统字体
 
-  其余中文字体用文泉驿微米黑(`wqy-microhei`)
+字体文件夹在：`$HOME/.deepinwine/Deepin-QQ/drive_c/windows/Fonts`
+
+Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list>
+
+* 中易宋体(SimSun)：`simsun.ttf` 或 `simsun.ttc`，图为SimSun, Regular：
+
+  ![simsun](simsun.png)
+
+* 微软雅黑(Microsoft YaHei)：`msyh.ttf`或`msyh.ttc`，图为Microsoft YaHei, Regular：
+
+  ![msyh](msyh.png)
+
+  Microsoft YaHei, Bold：
+
+  ![msyhb](msyhb.png)
+
+* (繁体)细明体(MingLiU)：`mingliu.ttf` 或 `mingliu.ttc`
+
+* (繁体)新细明体(PMingLiU)：`pmingliu.ttf` 或 `pmingliu.ttc`
 ## 常见问题
 * 1.解决在 2k/4k 屏幕下字体和图标都非常小, 参见[issue1](https://github.com/countstarlight/deepin-wine-tim-arch/issues/1)
 * 2.使用全局截图快捷键和解决Gnome上窗口化问题，参见[issue2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)

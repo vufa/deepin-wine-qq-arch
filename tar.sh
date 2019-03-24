@@ -4,3 +4,5 @@ cd reg_tmp && \
    tar -cvjSf reg_files.tar.bz2 * && \
    mv reg_files.tar.bz2 ../ && \
    cd ../
+
+md5sum reg_files.tar.bz2

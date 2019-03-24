@@ -10,7 +10,7 @@ pkgdesc="Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
 license=('custom')
-depends=('p7zip' 'wine' 'wine-mono' 'wine_gecko' 'xorg-xwininfo' 'xdotool' 'wqy-microhei' 'adobe-source-han-sans-cn-fonts' 'adobe-source-han-serif-cn-fonts' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
+depends=('p7zip' 'wine' 'wine-mono' 'wine_gecko' 'xorg-xwininfo' 'wqy-microhei' 'adobe-source-han-sans-cn-fonts' 'adobe-source-han-serif-cn-fonts' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://mirrors.ustc.edu.cn/deepin"
@@ -22,7 +22,7 @@ source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqve
 md5sums=('5135313eb131feeb6fef613ba02804cf'
   'e9f796f0b854381fbad5ab6fc31d8f4b'
   '2622a458c78108f79007bbf4d5e85a52'
-  '37af24493f4cbf092ff9bc88958fbf2b'
+  '02a7bfa7e06adbaa51cc14102f3f6204'
   'a66646b473a3fbad243ac1afd64da07a')
 
 build() {
