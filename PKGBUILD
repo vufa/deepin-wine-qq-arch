@@ -5,7 +5,7 @@
 pkgname=deepin-wine-qq
 pkgver=9.1.0.24712
 deepinqqver=8.9.19983deepin23
-pkgrel=5
+pkgrel=6
 pkgdesc="Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
@@ -22,7 +22,7 @@ source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqve
 md5sums=('5135313eb131feeb6fef613ba02804cf'
   'e9f796f0b854381fbad5ab6fc31d8f4b'
   '2622a458c78108f79007bbf4d5e85a52'
-  '02a7bfa7e06adbaa51cc14102f3f6204'
+  '4ca277470d368834dc3e2f1b6ea1b766'
   'a66646b473a3fbad243ac1afd64da07a')
 
 build() {
