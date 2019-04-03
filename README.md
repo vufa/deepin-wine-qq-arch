@@ -1,12 +1,27 @@
 在Archlinux及衍生发行版上运行QQ
 ========
 
-Deepin打包的QQ容器移植到Archlinux，包含定制的注册表配置，QQ安装包替换为官方最新
+<p align="center">
+  <a href="https://travis-ci.org/countstarlight/deepin-wine-qq-arch">
+    <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
+  </a>
+  <a href="https://im.qq.com/download/">
+    <img src="https://img.shields.io/badge/QQ-9.1.0.24712-blue.svg" alt="QQ Version">
+  </a>
+  <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
+    <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
+  </a>
+  <a href="https://github.com/countstarlight/deepin-wine-qq-arch/issues">
+    <img src="https://img.shields.io/github/issues/countstarlight/deepin-wine-qq-arch.svg" alt="GitHub Issues">
+  </a>
+</p>
 
-构建状态: [![travis-ci](https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master)](https://travis-ci.org/countstarlight/deepin-wine-qq-arch)
+Deepin打包的QQ容器移植到Archlinux，包含定制的注册表配置，QQ安装包替换为官方最新
 
 - [安装](#安装)
 - [字体](#字体)
+    - [使用其他字体](#使用其他字体)
+    - [修复字体模糊](#修复字体模糊)
 - [常见问题](#常见问题)
 - [感谢](#感谢)
 - [更新日志](#更新日志)
@@ -15,12 +30,6 @@ Deepin打包的QQ容器移植到Archlinux，包含定制的注册表配置，QQ�
 * 1.已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
 ```shell
 yay -S deepin-wine-qq
-```
-
-如果添加了archlinuxcn源，这会直接从源里安装，源相对AUR仓库有一定的延迟，要从AUR仓库安装:
-
-```shell
-yay deepin-wine-qq
 ```
 
 * 2.手动安装
