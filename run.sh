@@ -8,7 +8,7 @@
 #               CountStarlight <countstarlight@gmail.com>
 WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
-APPVER="9.1.0.24712"
+APPVER="9.1.1.24953"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"

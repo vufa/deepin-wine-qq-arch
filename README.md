@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.1.0.24712-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.1.1.24953-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -96,6 +96,7 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 
 ## 更新日志
 
+* 2019-04-19 QQ-9.1.1.24953
 * 2019-03-18 QQ-9.1.0.24712
 * 2019-03-06 QQ-9.0.9.24445
 * 2019-02-05 QQ-9.0.9_1
