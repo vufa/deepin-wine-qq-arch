@@ -18,7 +18,12 @@
 
 Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定制的注册表配置，QQ安装包替换为官方最新
 
+<!-- TOC -->
+
 - [安装](#安装)
+    - [从AUR安装](#从aur安装)
+    - [从GitHub Release 安装](#从github-release-安装)
+    - [从源码安装](#从源码安装)
 - [字体](#字体)
     - [使用其他字体](#使用其他字体)
     - [修复字体模糊](#修复字体模糊)
@@ -26,13 +31,44 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
 - [感谢](#感谢)
 - [更新日志](#更新日志)
 
+<!-- /TOC -->
+
 ## 安装
-* 1.已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
+
+`deepin-wine-qq`依赖`Multilib`仓库中的`wine`，`wine_gecko`和`wine-mono`，Archlinux默认没有开启`Multilib`仓库，需要编辑`/etc/pacman.conf`，取消对应行前面的注释([Archlinux wiki](https://wiki.archlinux.org/index.php/Official_repositories#multilib)):
+
+```diff
+# If you want to run 32 bit applications on your x86_64 system,
+# enable the multilib repositories as required here.
+
+#[multilib-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+-#[multilib]
+-#Include = /etc/pacman.d/mirrorlist
++[multilib]
++Include = /etc/pacman.d/mirrorlist
+```
+
+### 从AUR安装
+
+已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
+
 ```shell
 yay -S deepin-wine-qq
 ```
 
-* 2.手动安装
+### 从GitHub Release 安装
+
+> 由[Travis CI](https://travis-ci.org/countstarlight/deepin-wine-qq-arch)在Docker容器[mikkeloscar/arch-travis](https://hub.docker.com/r/mikkeloscar/arch-travis)中自动构建的ArchLinux安装包
+
+在[GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases)页面下载 `.pkg.tar.xz`后缀的安装包，使用`pacman`安装：
+
+```bash
+sudo pacman -U #下载的包名
+```
+
+### 从源码安装
 
 ```shell
  git clone https://github.com/countstarlight/deepin-wine-qq-arch.git
