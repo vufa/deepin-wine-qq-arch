@@ -11,6 +11,9 @@
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
   </a>
+  <a href="https://github.com/countstarlight/deepin-wine-qq-arch/releases">
+    <img src="https://img.shields.io/github/downloads/countstarlight/deepin-wine-qq-arch/total.svg" alt="GitHub Release">
+  </a>
   <a href="https://github.com/countstarlight/deepin-wine-qq-arch/issues">
     <img src="https://img.shields.io/github/issues/countstarlight/deepin-wine-qq-arch.svg" alt="GitHub Issues">
   </a>
