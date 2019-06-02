@@ -32,7 +32,7 @@ deploy:
   api_key: $GH_TOKEN
   file_glob: true
   file:
-    - "/build/deepin-wine-qq-*-x86_64.pkg.tar.xz"
+    - "deepin-wine-qq-*-x86_64.pkg.tar.xz"
   on:
     tags: true
     all_branches: true
