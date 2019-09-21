@@ -6,10 +6,13 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.1.1.24953-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.1.8.26211-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
+  </a>
+  <a href="https://github.com/countstarlight/deepin-wine-qq-arch/releases">
+    <img src="https://img.shields.io/github/downloads/countstarlight/deepin-wine-qq-arch/total.svg" alt="GitHub Release">
   </a>
   <a href="https://github.com/countstarlight/deepin-wine-qq-arch/issues">
     <img src="https://img.shields.io/github/issues/countstarlight/deepin-wine-qq-arch.svg" alt="GitHub Issues">
@@ -18,7 +21,13 @@
 
 Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定制的注册表配置，QQ安装包替换为官方最新
 
+<!-- TOC -->
+
 - [安装](#安装)
+    - [从AUR安装](#从aur安装)
+    - [用安装包安装](#用安装包安装)
+    - [本地打包安装](#本地打包安装)
+- [切换到 `deepin-wine`](#切换到-deepin-wine)
 - [字体](#字体)
     - [使用其他字体](#使用其他字体)
     - [修复字体模糊](#修复字体模糊)
@@ -26,13 +35,44 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
 - [感谢](#感谢)
 - [更新日志](#更新日志)
 
+<!-- /TOC -->
+
 ## 安装
-* 1.已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
+
+`deepin-wine-qq`依赖`Multilib`仓库中的`wine`，`wine_gecko`和`wine-mono`，Archlinux默认没有开启`Multilib`仓库，需要编辑`/etc/pacman.conf`，取消对应行前面的注释([Archlinux wiki](https://wiki.archlinux.org/index.php/Official_repositories#multilib)):
+
+```diff
+# If you want to run 32 bit applications on your x86_64 system,
+# enable the multilib repositories as required here.
+
+#[multilib-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+-#[multilib]
+-#Include = /etc/pacman.d/mirrorlist
++[multilib]
++Include = /etc/pacman.d/mirrorlist
+```
+
+### 从AUR安装
+
+已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
+
 ```shell
 yay -S deepin-wine-qq
 ```
 
-* 2.手动安装
+### 用安装包安装
+
+> 由[Travis CI](https://travis-ci.org/countstarlight/deepin-wine-qq-arch)在Docker容器[mikkeloscar/arch-travis](https://hub.docker.com/r/mikkeloscar/arch-travis)中自动构建的ArchLinux安装包
+
+在[GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases)页面下载 `.pkg.tar.xz`后缀的安装包，使用`pacman`安装：
+
+```bash
+sudo pacman -U #下载的包名
+```
+
+### 本地打包安装
 
 ```shell
  git clone https://github.com/countstarlight/deepin-wine-qq-arch.git
@@ -47,6 +87,41 @@ yay -S deepin-wine-qq
 * 安装完可直接启动
 
 * **前几次运行时可能会提示 "qq安全组件异常"，等一会再运行或重启一下系统**
+
+## 切换到 `deepin-wine`
+
+由于原版 `wine` 在DDE(Deepin Desktop Environment)上，存在托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))等问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine`。
+
+根据 [deepin-wine-tim-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15#issuecomment-515455845)，由 [@feileb](https://github.com/feileb) 和 [@violetbobo](https://github.com/violetbobo) 提供的方法：
+
+* 1. 安装 deepin-wine
+
+```bash
+yay -S deepin-wine
+```
+
+* 2. 修改 `deepin-wine-qq` 的启动文件
+
+/opt/deepinwine/tools/run.sh
+
+/opt/deepinwine/apps/Deepin-QQ/run.sh
+
+修改这两个文件中的 `WINE_CMD` 的值：
+
+```diff
+-WINE_CMD="wine"
++WINE_CMD="deepin-wine"
+```
+
+**注意：对 `/opt/deepinwine/apps/Deepin-QQ/run.sh` 的修改会在 `deepin-wine-qq` 更新或重装时被覆盖，可以单独拷贝一份作为启动脚本**
+
+* 3. 修复 `deepin-wine` 字体渲染发虚
+
+```bash
+yay -S lib32-freetype2-infinality-ultimate
+```
+
+**注意：切换到 `deepin-wine` 后，对 `wine` 的修改，如更改dpi，都改为对 `deepin-wine` 的修改**
 
 ## 字体
 
@@ -96,6 +171,7 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 
 ## 更新日志
 
+* 2019-09-21 QQ-9.1.8.26211
 * 2019-04-19 QQ-9.1.1.24953
 * 2019-03-18 QQ-9.1.0.24712
 * 2019-03-06 QQ-9.0.9.24445

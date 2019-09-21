@@ -1,11 +1,10 @@
 # Maintainer: CountStarlight <countstarlight@gmail.com>
-# Maintainer: wszqkzqk <wszqkzqk@gmail.com>
-# Maintainer: ssfdust <ssfdust@gmail.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.1.1.24953
+pkgver=9.1.8.26211
+exename="PCQQ2019.exe"
 deepinqqver=8.9.19983deepin23
-pkgrel=2
+pkgrel=1
 pkgdesc="Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
@@ -15,12 +14,12 @@ conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://mirrors.ustc.edu.cn/deepin"
 source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqver}_i386.deb"
-  "https://dldir1.qq.com/qqfile/qq/PCQQ9.1.1/24953/QQ${pkgver}.exe"
+  "https://qd.myapp.com/myapp/qqteam/pcqq/$exename"
   "run.sh"
   "reg.patch")
 md5sums=('5135313eb131feeb6fef613ba02804cf'
-  '65dc45d290c766c096a9a0943655af2e'
-  '34b6328a1b17476396c69c71bf88dcf5'
+  '98ae54992ae982ee9527a535fbd804db'
+  'effb142fefd55e3c2ca0f5cb3a84b676'
   '612646e3bf740a7b3ec6493466da724e')
 
 build() {
@@ -48,5 +47,5 @@ package() {
   install -d "${pkgdir}/opt/deepinwine/apps/Deepin-QQ"
   install -m644 "${srcdir}/files.7z" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
   install -m755 "${srcdir}/run.sh" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
-  install -m644 "${srcdir}/QQ$pkgver.exe" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
+  install -m644 "${srcdir}/$exename" "${pkgdir}/opt/deepinwine/apps/Deepin-QQ/"
 }

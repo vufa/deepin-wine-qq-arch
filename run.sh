@@ -8,7 +8,8 @@
 #               CountStarlight <countstarlight@gmail.com>
 WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
-APPVER="9.1.1.24953"
+APPVER="9.1.8.26211"
+EXENAME="PCQQ2019.exe"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"
@@ -25,7 +26,7 @@ CallApp()
 	if [ ! -f $WINEPREFIX/reinstalled ]
 	then
 		touch $WINEPREFIX/reinstalled
-		env WINEPREFIX=$WINEPREFIX wine $APPDIR/QQ$APPVER.exe
+		env WINEPREFIX=$WINEPREFIX wine $APPDIR/$EXENAME
 	else
 		#Support use native file dialog
         export ATTACH_FILE_DIALOG=1
