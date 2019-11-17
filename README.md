@@ -27,7 +27,15 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
     - [从AUR安装](#从aur安装)
     - [用安装包安装](#用安装包安装)
     - [本地打包安装](#本地打包安装)
+- [兼容性记录](#兼容性记录)
 - [切换到 `deepin-wine`](#切换到-deepin-wine)
+    - [自动切换](#自动切换)
+    - [手动切换](#手动切换)
+        - [1. 安装 deepin-wine](#1-安装-deepin-wine)
+        - [2. 修改 `deepin-wine-qq` 的启动文件](#2-修改-deepin-wine-qq-的启动文件)
+        - [3. 对于非 GNOME 桌面(KDE, XFCE等)](#3-对于非-gnome-桌面kde-xfce等)
+        - [4. 删除原先的QQ目录](#4-删除原先的qq目录)
+        - [5. 修复 `deepin-wine` 字体渲染发虚](#5-修复-deepin-wine-字体渲染发虚)
 - [字体](#字体)
     - [使用其他字体](#使用其他字体)
     - [修复字体模糊](#修复字体模糊)
@@ -82,40 +90,98 @@ sudo pacman -U #下载的包名
  makepkg -si
 ```
 
-* 运行开始菜单中创建的QQ快捷方式，开始安装QQ
-
-* 安装完可直接启动
+* 运行应用菜单中创建的QQ快捷方式
 
 * **前几次运行时可能会提示 "qq安全组件异常"，等一会再运行或重启一下系统**
 
+## 兼容性记录
+
+| QQ版本 | wine版本 | 兼容性 |        备注        | deepin-wine版本 | 兼容性 | 备注 |
+| :------: | :------: | :----: | :----------------: | :-------------: | :----: | :--: |
+| 9.1.8.26211 | 4.20-1 | 支持 |  |  |  |  |
+| 9.1.8.26211 |  4.18-1  |  部分  | 不能使用中文输入法 |        |  |  |
+| 9.1.8.26211 |  4.17-1  |  部分  | 不能使用中文输入法 |        |  |  |
+| 9.1.8.26211 |  4.16-1  |  支持  |                    |        |    ||
+
 ## 切换到 `deepin-wine`
 
-由于原版 `wine` 在DDE(Deepin Desktop Environment)上，存在托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))等问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine`。
+由于原版 `wine` 在 [DDE(Deepin Desktop Environment)](https://www.deepin.org/dde/) 上，存在托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))，边框穿透显示([deepin-wine-wechat-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15)), 无法截图等问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine`。
 
-根据 [deepin-wine-tim-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15#issuecomment-515455845)，由 [@feileb](https://github.com/feileb) 和 [@violetbobo](https://github.com/violetbobo) 提供的方法：
+**注意：切换前先确保 `deepin-wine` 支持**
 
-* 1. 安装 deepin-wine
+根据 [deepin-wine-wechat-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15#issuecomment-515455845)，[deepin-wine-wechat-arch#27](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/27)，由 [@feileb](https://github.com/feileb), [@violetbobo](https://github.com/violetbobo), [@HE7086](https://github.com/HE7086)提供的方法：
+
+### 自动切换
+
+```bash
+/opt/deepinwine/apps/Deepin-QQ/run.sh -d
+```
+
+这会安装需要的依赖并移除已安装的微信目录
+
+切换回 `wine`：
+
+```bash
+rm ~/.deepinwine/Deepin-QQ/deepin
+```
+
+如果要卸载自动安装的依赖：
+
+```bash
+sudo pacman -Rns deepin-wine gnome-settings-daemon lib32-freetype2-infinality-ultimate
+```
+
+### 手动切换
+
+#### 1. 安装 deepin-wine
 
 ```bash
 yay -S deepin-wine
 ```
 
-* 2. 修改 `deepin-wine-qq` 的启动文件
+#### 2. 修改 `deepin-wine-qq` 的启动文件
 
-/opt/deepinwine/tools/run.sh
+修改如下两个文件中的 `WINE_CMD` 的值：
 
-/opt/deepinwine/apps/Deepin-QQ/run.sh
+`/opt/deepinwine/apps/Deepin-QQ/run.sh`
 
-修改这两个文件中的 `WINE_CMD` 的值：
+`/opt/deepinwine/tools/run.sh`
 
 ```diff
 -WINE_CMD="wine"
 +WINE_CMD="deepin-wine"
 ```
 
+#### 3. 对于非 GNOME 桌面(KDE, XFCE等)
+
+需要安装 `gnome-settings-daemon`
+
+```bash
+sudo pacman -Sy gnome-settings-daemon
+```
+并在 `/opt/deepinwine/apps/Deepin-QQ/run.sh` 中加入如下几行：
+
+```diff
+ RunApp()
+ {
++    if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]]
++    then
++        /usr/lib/gsd-xsettings &
++    fi
+        if [ -d "$WINEPREFIX" ]; then
+                UpdateApp
+        else
+```
+
 **注意：对 `/opt/deepinwine/apps/Deepin-QQ/run.sh` 的修改会在 `deepin-wine-qq` 更新或重装时被覆盖，可以单独拷贝一份作为启动脚本**
 
-* 3. 修复 `deepin-wine` 字体渲染发虚
+#### 4. 删除原先的QQ目录
+
+```bash
+rm -rf ~/.deepinwine/Deepin-QQ
+```
+
+#### 5. 修复 `deepin-wine` 字体渲染发虚
 
 ```bash
 yay -S lib32-freetype2-infinality-ultimate
@@ -171,7 +237,8 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 
 ## 更新日志
 
-* 2019-09-21 QQ-9.1.8.26211
+* 2019-11-17 QQ-9.1.8.26211 deepin.com.qq.im_9.1.8deepin0
+* 2019-09-21 QQ-9.1.8.26211 deepin.com.qq.im_8.9.19983deepin23
 * 2019-04-19 QQ-9.1.1.24953
 * 2019-03-18 QQ-9.1.0.24712
 * 2019-03-06 QQ-9.0.9.24445

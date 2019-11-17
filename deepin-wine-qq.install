@@ -2,6 +2,6 @@ post_upgrade() {
     find /home -maxdepth 2 -name ".deepinwine" -exec rm -f \{\}/Deepin-QQ/reinstalled \;
 }
 pre_remove() {
-    echo "deleting the TIM bottle..."
+    echo "deleting the QQ bottle..."
     find /home -maxdepth 2 -name ".deepinwine" -exec rm -rf \{\}/Deepin-QQ/ \;
 }

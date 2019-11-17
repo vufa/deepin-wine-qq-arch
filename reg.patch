@@ -1,76 +1,53 @@
 diff -ruN reg_tmp/system.reg reg_tmp_fixed/system.reg
---- reg_tmp/system.reg	2018-07-09 18:26:55.000000000 +0800
-+++ reg_tmp_fixed/system.reg	2019-03-25 13:14:35.000000000 +0800
-@@ -31308,7 +31308,7 @@
- "Comments"=""
- "Contact"=""
- "DisplayName"="\x817e\x8bafQQ"
--"DisplayVersion"="8.9.19983.0"
-+"DisplayVersion"="9.1.0.24712"
- "EstimatedSize"=dword:00000000
- "HelpLink"=""
- "HelpTelephone"="(86) 755 86060836"
-@@ -35473,7 +35473,7 @@
- "Comments"=""
- "Contact"=""
- "DisplayName"="\x817e\x8bafQQ"
--"DisplayVersion"="8.9.19983.0"
-+"DisplayVersion"="9.1.0.24712"
- "EstimatedSize"=dword:0002f04d
- "HelpLink"=""
- "HelpTelephone"="(86) 755 86060836"
-@@ -35531,18 +35531,16 @@
- "mosaic"="http://"
- "www"="http://"
+--- reg_tmp/system.reg	2019-10-12 14:20:02.000000000 +0800
++++ reg_tmp_fixed/system.reg	2019-11-17 20:38:24.815184040 +0800
+@@ -35534,15 +35534,16 @@
+ [Software\\Microsoft\\Windows\\CurrentVersion\\Winlogon] 1486365954
+ #time=1d2804a40822790
  
--[Software\\Microsoft\\Windows\\CurrentVersion\\Winlogon] 1486365954
--#time=1d2804a40822790
--
 -[Software\\Microsoft\\Windows NT\\CurrentVersion] 1511495762
 -#time=1d364d825372332
 -"CSDVersion"="Service Pack 3"
 -"CurrentBuildNumber"="2600"
-+[Software\\Microsoft\\Windows NT\\CurrentVersion] 1553355758
-+#time=1d4e18f0af44402
-+"CSDVersion"=""
-+"CurrentBuild"="17134"
-+"CurrentBuildNumber"="17134"
++[Software\\Microsoft\\Windows NT\\CurrentVersion] 1571657811
++#time=1d58803d4d74e20
++"CSDVersion"="Service Pack 1"
++"CurrentBuild"="7601"
++"CurrentBuildNumber"="7601"
  "CurrentType"="Uniprocessor Free"
 -"CurrentVersion"="5.1"
-+"CurrentVersion"="10.0"
++"CurrentVersion"="6.1"
  "InstallDate"=dword:4be5019a
  "ProductId"="12345-oem-0000001-54321"
 -"ProductName"="Microsoft Windows XP"
-+"ProductName"="Microsoft Windows 10"
++"ProductName"="Microsoft Windows 7"
  "RegisteredOrganization"=""
  "RegisteredOwner"=""
  "SystemRoot"="C:\\windows"
-@@ -37064,7 +37062,7 @@
+@@ -37190,12 +37191,12 @@
  
  [Software\\Tencent\\PlatForm_Type_List\\1] 1486366185
  #time=1d2804aca40187a
 -"TypeName"="QQ8.9"
-+"TypeName"="QQ9.1.0"
++"TypeName"="QQ9.1.8"
  "TypePath"="C:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
  
  [Software\\Tencent\\PlatForm_Type_List\\3] 1486366142
+ #time=1d2804ab0acc142
+-"TypeName"="QQ2013"
++"TypeName"="QQ9.1.8"
+ "TypePath"="C:\\Program Files\\Tencent\\QQ"
+ 
+ [Software\\Tencent\\QQ2009] 1570860211
 diff -ruN reg_tmp/user.reg reg_tmp_fixed/user.reg
---- reg_tmp/user.reg	2018-07-09 18:26:55.000000000 +0800
-+++ reg_tmp_fixed/user.reg	2019-03-23 01:07:26.000000000 +0800
-@@ -899,7 +899,7 @@
+--- reg_tmp/user.reg	2019-10-12 14:20:02.000000000 +0800
++++ reg_tmp_fixed/user.reg	2019-11-17 20:33:23.355918370 +0800
+@@ -926,7 +926,7 @@
  
  [Software\\Tencent\\PlatForm_Type_List\\1] 1486366185
  #time=1d2804aca401244
 -"TypeName"="QQ8.9"
-+"TypeName"="QQ9.1.0"
++"TypeName"="QQ9.1.8"
  "TypePath"="C:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
  
  [Software\\Tencent\\Plugin\\VAS\\842404343] 1486366176
-@@ -1019,6 +1019,7 @@
- "androidassist"=""
- "mlang"="native,builtin"
- "msls31"="native,builtin"
-+"ntoskrnl.exe"=""
- "qdantidrv.sys"=""
- "qqpcmgr.exe"=""
- "qqpcrtp.exe"=""

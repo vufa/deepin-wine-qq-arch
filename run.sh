@@ -5,11 +5,11 @@
 #   Author:     Li LongYu <lilongyu@linuxdeepin.com>
 #               Peng Hao <penghao@linuxdeepin.com>
 
-#               CountStarlight <countstarlight@gmail.com>
+#               Codist <countstarlight@gmail.com>
 WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
 APPVER="9.1.8.26211"
-EXENAME="PCQQ2019.exe"
+#EXENAME="PCQQ2019.exe"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"
@@ -19,20 +19,23 @@ HelpApp()
 	echo " Extra Commands:"
 	echo " -r/--reset     Reset app to fix errors"
 	echo " -e/--remove    Remove deployed app files"
+	echo " -d/--deepin    Switch to 'deepin-wine'"
 	echo " -h/--help      Show program help info"
 }
 CallApp()
 {
 	if [ ! -f $WINEPREFIX/reinstalled ]
 	then
+		#touch $WINEPREFIX/reinstalled
+		#env WINEPREFIX=$WINEPREFIX wine $APPDIR/$EXENAME
+		RemoveApp
+		DeployApp
 		touch $WINEPREFIX/reinstalled
-		env WINEPREFIX=$WINEPREFIX wine $APPDIR/$EXENAME
-	else
-		#Support use native file dialog
-        export ATTACH_FILE_DIALOG=1
+    fi
+    #Support use native file dialog
+    export ATTACH_FILE_DIALOG=1
 
-        env WINEPREFIX="$WINEPREFIX" $WINE_CMD "c:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe" &
-	fi
+    env WINEPREFIX="$WINEPREFIX" $WINE_CMD "c:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe" &
 }
 ExtractApp()
 {
@@ -40,7 +43,7 @@ ExtractApp()
 	7z x "$APPDIR/$APPTAR" -o"$1"
 	mv "$1/drive_c/users/@current_user@" "$1/drive_c/users/$USER"
 	sed -i "s#@current_user@#$USER#" $1/*.reg
-	sed -i "s/deepin-wine/wine/" $1/drive_c/deepin/EnvInit.sh
+	#sed -i "s/deepin-wine/wine/" $1/drive_c/deepin/EnvInit.sh
 }
 DeployApp()
 {
@@ -93,6 +96,34 @@ CreateBottle()
     fi
 }
 
+SwitchToDeepinWine()
+{
+	if [ -d "$WINEPREFIX" ]; then
+		RemoveApp
+		DeployApp
+	fi
+	PACKAGE_MANAGER="yay"
+	if ! [ -x "$(command -v yay)" ]; then
+		if ! [ -x "$(command -v yaourt)" ]; then
+			echo "Error: Need to install 'yay' or 'yaourt' first." >&2
+			exit 1
+		else
+			$PACKAGE_MANAGER="yaourt"
+		fi
+    fi
+	$PACKAGE_MANAGER -S deepin-wine gnome-settings-daemon lib32-freetype2-infinality-ultimate --needed
+	touch -f $WINEPREFIX/deepin
+	echo "Done."
+}
+
+# Init
+if [ -f "$WINEPREFIX/deepin" ]; then
+	WINE_CMD="deepin-wine"
+	if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]]; then
+		/usr/lib/gsd-xsettings &
+	fi
+fi
+
 if [ -z $1 ]; then
 	RunApp
 	exit 0
@@ -106,6 +137,9 @@ case $1 in
 		;;
 	"-e" | "--remove")
 		RemoveApp
+		;;
+	"-d" | "--deepin")
+		SwitchToDeepinWine
 		;;
 	"-u" | "--uri")
 		RunApp $2
