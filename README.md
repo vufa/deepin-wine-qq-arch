@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.1.8.26211-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.3.2.26869-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -29,17 +29,20 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
     - [本地打包安装](#本地打包安装)
 - [兼容性记录](#兼容性记录)
 - [切换到 `deepin-wine`](#切换到-deepin-wine)
-    - [自动切换](#自动切换)
+    - [自动切换(推荐)](#自动切换推荐)
     - [手动切换](#手动切换)
         - [1. 安装 deepin-wine](#1-安装-deepin-wine)
-        - [2. 修改 `deepin-wine-qq` 的启动文件](#2-修改-deepin-wine-qq-的启动文件)
-        - [3. 对于非 GNOME 桌面(KDE, XFCE等)](#3-对于非-gnome-桌面kde-xfce等)
-        - [4. 删除原先的QQ目录](#4-删除原先的qq目录)
-        - [5. 修复 `deepin-wine` 字体渲染发虚](#5-修复-deepin-wine-字体渲染发虚)
+        - [2. 对于非 GNOME 桌面(KDE, XFCE等)](#2-对于非-gnome-桌面kde-xfce等)
+        - [3. 删除已安装的QQ目录](#3-删除已安装的qq目录)
+        - [4. 修复 `deepin-wine` 字体渲染发虚](#4-修复-deepin-wine-字体渲染发虚)
 - [字体](#字体)
     - [使用其他字体](#使用其他字体)
     - [修复字体模糊](#修复字体模糊)
-- [常见问题](#常见问题)
+- [常见问题及解决](#常见问题及解决)
+    - [不能记住密码](#不能记住密码)
+    - [网络连接状态改变后不能重连](#网络连接状态改变后不能重连)
+    - [高分辨率屏幕支持](#高分辨率屏幕支持)
+    - [使用全局截图快捷键](#使用全局截图快捷键)
 - [感谢](#感谢)
 - [更新日志](#更新日志)
 
@@ -96,28 +99,29 @@ sudo pacman -U #下载的包名
 
 ## 兼容性记录
 
-| QQ版本 | wine版本 | 兼容性 |        备注        | deepin-wine版本 | 兼容性 | 备注 |
-| :------: | :------: | :----: | :----------------: | :-------------: | :----: | :--: |
-| 9.1.8.26211 | 4.20-1 | 支持 |  |  |  |  |
-| 9.1.8.26211 |  4.18-1  |  部分  | 不能使用中文输入法 |        |  |  |
-| 9.1.8.26211 |  4.17-1  |  部分  | 不能使用中文输入法 |        |  |  |
-| 9.1.8.26211 |  4.16-1  |  支持  |                    |        |    ||
+|   QQ版本    | wine版本 | 兼容性 |        备注        | deepin-wine版本 | 兼容性 | 备注 |
+| :---------: | :------: | :----: | :----------------: | :-------------: | :----: | :--: |
+| 9.3.2.26869 |   5.8    |  支持  |                    |    2.18_22-3    |  支持  |      |
+| 9.1.8.26211 |  4.20-1  |  支持  |                    |                 |        |      |
+| 9.1.8.26211 |  4.18-1  |  部分  | 不能使用中文输入法 |                 |        |      |
+| 9.1.8.26211 |  4.17-1  |  部分  | 不能使用中文输入法 |                 |        |      |
+| 9.1.8.26211 |  4.16-1  |  支持  |                    |                 |        |      |
 
 ## 切换到 `deepin-wine`
 
-由于原版 `wine` 在 [DDE(Deepin Desktop Environment)](https://www.deepin.org/dde/) 上，存在托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))，边框穿透显示([deepin-wine-wechat-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15)), 无法截图等问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine`。
+原版 `wine` 在 [DDE(Deepin Desktop Environment)](https://www.deepin.org/dde/) 上，有托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))的问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine`。
 
 **注意：切换前先确保 `deepin-wine` 支持**
 
 根据 [deepin-wine-wechat-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15#issuecomment-515455845)，[deepin-wine-wechat-arch#27](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/27)，由 [@feileb](https://github.com/feileb), [@violetbobo](https://github.com/violetbobo), [@HE7086](https://github.com/HE7086)提供的方法：
 
-### 自动切换
+### 自动切换(推荐)
 
 ```bash
 /opt/deepinwine/apps/Deepin-QQ/run.sh -d
 ```
 
-这会安装需要的依赖并移除已安装的微信目录
+这会安装需要的依赖，移除已安装的微信目录并回退对注册表文件的修改
 
 切换回 `wine`：
 
@@ -128,7 +132,7 @@ rm ~/.deepinwine/Deepin-QQ/deepin
 如果要卸载自动安装的依赖：
 
 ```bash
-sudo pacman -Rns deepin-wine gnome-settings-daemon lib32-freetype2-infinality-ultimate
+sudo pacman -Rns deepin-wine xsettingsd lib32-freetype2-infinality-ultimate
 ```
 
 ### 手动切换
@@ -139,34 +143,27 @@ sudo pacman -Rns deepin-wine gnome-settings-daemon lib32-freetype2-infinality-ul
 yay -S deepin-wine
 ```
 
-#### 2. 修改 `deepin-wine-qq` 的启动文件
+#### 2. 对于非 GNOME 桌面(KDE, XFCE等)
 
-修改如下两个文件中的 `WINE_CMD` 的值：
+需要安装 `xsettingsd`：
 
-`/opt/deepinwine/apps/Deepin-QQ/run.sh`
+根据 [deepin-wine-wechat-arch#36](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/36#issuecomment-612001200)，由[Face-Smile](https://github.com/Face-Smile)提供的方法：
 
-`/opt/deepinwine/tools/run.sh`
+```bash
+sudo pacman -S xsettingsd
+```
+
+修改 `/opt/deepinwine/apps/Deepin-QQ/run.sh`：
 
 ```diff
 -WINE_CMD="wine"
 +WINE_CMD="deepin-wine"
-```
 
-#### 3. 对于非 GNOME 桌面(KDE, XFCE等)
-
-需要安装 `gnome-settings-daemon`
-
-```bash
-sudo pacman -Sy gnome-settings-daemon
-```
-并在 `/opt/deepinwine/apps/Deepin-QQ/run.sh` 中加入如下几行：
-
-```diff
  RunApp()
  {
-+    if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]]
++    if [[ -z "$(ps -e | grep -o xsettingsd)" ]]
 +    then
-+        /usr/lib/gsd-xsettings &
++        /usr/bin/xsettingsd &
 +    fi
         if [ -d "$WINEPREFIX" ]; then
                 UpdateApp
@@ -175,13 +172,17 @@ sudo pacman -Sy gnome-settings-daemon
 
 **注意：对 `/opt/deepinwine/apps/Deepin-QQ/run.sh` 的修改会在 `deepin-wine-qq` 更新或重装时被覆盖，可以单独拷贝一份作为启动脚本**
 
-#### 4. 删除原先的QQ目录
+#### 3. 删除已安装的QQ目录
 
 ```bash
 rm -rf ~/.deepinwine/Deepin-QQ
 ```
 
-#### 5. 修复 `deepin-wine` 字体渲染发虚
+#### 4. 修复 `deepin-wine` 字体渲染发虚
+
+kde桌面参考：[deepin-wine-wechat-arch#36](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/36)
+
+deepin 桌面：
 
 ```bash
 yay -S lib32-freetype2-infinality-ultimate
@@ -218,18 +219,28 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 ### 修复字体模糊
 
 参见：[deepin-wine-tim-arch#修复字体模糊](https://github.com/countstarlight/deepin-wine-tim-arch#%E4%BF%AE%E5%A4%8D%E5%AD%97%E4%BD%93%E6%A8%A1%E7%B3%8A)
-## 常见问题
 
-- [ ] 1.不能视频通话
-- [ ] 2.不能记住密码
-- [ ] 3.网络连接状态改变后不能重连: [issue19](https://github.com/countstarlight/deepin-wine-tim-arch/issues/19)
-- [x] 4.解决在 2k/4k 屏幕下字体和图标都非常小, 参见[issue1](https://github.com/countstarlight/deepin-wine-tim-arch/issues/1)
-- [x] 5.使用全局截图快捷键和解决Gnome上窗口化问题，参见[issue2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)
+## 常见问题及解决
+
+### 不能记住密码
+
+参照[切换到 `deepin-wine`](#切换到-deepin-wine) 解决
+
+### 网络连接状态改变后不能重连
+
+参照[切换到 `deepin-wine`](#切换到-deepin-wine) 解决
+
+### 高分辨率屏幕支持
+
+在 2k/4k 屏幕下字体和图标都非常小, 参见[issue1](https://github.com/countstarlight/deepin-wine-tim-arch/issues/1)
+
+### 使用全局截图快捷键
+
+使用全局截图快捷键和解决Gnome上窗口化问题，参见[issue2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)
 
 ## 感谢
 
 * [Wuhan Deepin Technology Co.,Ltd.](http://www.deepin.org/)
-
 
 * [@wszqkzqk](https://github.com/wszqkzqk) 的 [wszqkzqk-deepin-wine-tim-arch](https://github.com/wszqkzqk/wszqkzqk-deepin-wine-tim-arch)
 
@@ -237,6 +248,7 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 
 ## 更新日志
 
+* 2020-05-11 QQ-9.3.2.26869
 * 2019-11-17 QQ-9.1.8.26211 deepin.com.qq.im_9.1.8deepin0
 * 2019-09-21 QQ-9.1.8.26211 deepin.com.qq.im_8.9.19983deepin23
 * 2019-04-19 QQ-9.1.1.24953

@@ -8,8 +8,9 @@
 #               Codist <countstarlight@gmail.com>
 WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
-APPVER="9.1.8.26211"
-#EXENAME="PCQQ2019.exe"
+APPVER="9.1.8deepin0"
+QQ_INSTALLER="PCQQ2020"
+QQ_VER="9.3.2.26869"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"
@@ -26,16 +27,14 @@ CallApp()
 {
 	if [ ! -f $WINEPREFIX/reinstalled ]
 	then
-		#touch $WINEPREFIX/reinstalled
-		#env WINEPREFIX=$WINEPREFIX wine $APPDIR/$EXENAME
-		RemoveApp
-		DeployApp
 		touch $WINEPREFIX/reinstalled
-    fi
-    #Support use native file dialog
-    export ATTACH_FILE_DIALOG=1
+		env WINEPREFIX=$WINEPREFIX $WINE_CMD $APPDIR/$QQ_INSTALLER-$QQ_VER.exe &
+    else
+		#Support use native file dialog
+		export ATTACH_FILE_DIALOG=1
 
-    env WINEPREFIX="$WINEPREFIX" $WINE_CMD "c:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe" &
+		env WINEPREFIX="$WINEPREFIX" $WINE_CMD "c:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe" &
+	fi
 }
 ExtractApp()
 {
@@ -98,10 +97,6 @@ CreateBottle()
 
 SwitchToDeepinWine()
 {
-	if [ -d "$WINEPREFIX" ]; then
-		RemoveApp
-		DeployApp
-	fi
 	PACKAGE_MANAGER="yay"
 	if ! [ -x "$(command -v yay)" ]; then
 		if ! [ -x "$(command -v yaourt)" ]; then
@@ -111,16 +106,25 @@ SwitchToDeepinWine()
 			$PACKAGE_MANAGER="yaourt"
 		fi
     fi
-	$PACKAGE_MANAGER -S deepin-wine gnome-settings-daemon lib32-freetype2-infinality-ultimate --needed
+	echo -e "\033[0;34mInstalling dependencies ...\033[0m"
+	$PACKAGE_MANAGER -S deepin-wine xsettingsd lib32-freetype2-infinality-ultimate --needed
+	echo -e "\033[0;34mRedeploying app ...\033[0m"
+	if [ -d "$WINEPREFIX" ]; then
+		RemoveApp
+	fi
+	DeployApp
+	echo -e "\033[0;34mReversing the patch ...\033[0m"
+	patch -p1 -R -d  ${WINEPREFIX} < $APPDIR/reg.patch
+	echo -e "\033[0;34mCreating flag file '$WINEPREFIX/deepin' ...\033[0m"
 	touch -f $WINEPREFIX/deepin
-	echo "Done."
+	echo -e "\033[0;34mDone.\033[0m"
 }
 
 # Init
 if [ -f "$WINEPREFIX/deepin" ]; then
 	WINE_CMD="deepin-wine"
-	if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]]; then
-		/usr/lib/gsd-xsettings &
+	if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]] && [[ -z "$(ps -e | grep -o xsettingsd)" ]]; then
+		/usr/bin/xsettingsd &
 	fi
 fi
 
