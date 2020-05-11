@@ -1,4 +1,4 @@
-# Maintainer: CountStarlight <countstarlight@gmail.com>
+# Maintainer: Codist <countstarlight@gmail.com>
 
 pkgname=deepin-wine-qq
 pkgver=9.3.2.26869
@@ -9,7 +9,7 @@ pkgdesc="Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
 url="http://im.qq.com/"
 license=('custom')
-depends=('p7zip' 'wine' 'wine-mono' 'wine_gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
+depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://mirrors.ustc.edu.cn/deepin"
@@ -20,7 +20,7 @@ source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqve
 md5sums=('d35bd4abfd1ac4c5e71c7fbc5282ccbd'
   'be60d96dd24b5f2c47c957513b10cd7a'
   '0137e8353accd854e6bc6eb6a05344ba'
-  '0e6c4358a4914ef8be6f4abc8423a69a')
+  'dda41a355a4a64b09f13ab29b828bd42')
 
 build() {
   msg "Extracting DPKG package ..."

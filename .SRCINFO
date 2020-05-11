@@ -9,7 +9,7 @@ pkgbase = deepin-wine-qq
 	depends = p7zip
 	depends = wine
 	depends = wine-mono
-	depends = wine_gecko
+	depends = wine-gecko
 	depends = xorg-xwininfo
 	depends = wqy-microhei
 	depends = lib32-alsa-lib
@@ -27,7 +27,7 @@ pkgbase = deepin-wine-qq
 	md5sums = d35bd4abfd1ac4c5e71c7fbc5282ccbd
 	md5sums = be60d96dd24b5f2c47c957513b10cd7a
 	md5sums = 0137e8353accd854e6bc6eb6a05344ba
-	md5sums = 0e6c4358a4914ef8be6f4abc8423a69a
+	md5sums = dda41a355a4a64b09f13ab29b828bd42
 
 pkgname = deepin-wine-qq
 
