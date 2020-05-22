@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.3.2.26869-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.3.3.27009-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -50,7 +50,7 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
 
 ## 安装
 
-`deepin-wine-qq`依赖`Multilib`仓库中的`wine`，`wine_gecko`和`wine-mono`，Archlinux默认没有开启`Multilib`仓库，需要编辑`/etc/pacman.conf`，取消对应行前面的注释([Archlinux wiki](https://wiki.archlinux.org/index.php/Official_repositories#multilib)):
+`deepin-wine-qq`依赖`Multilib`仓库中的`wine`，`wine-gecko`和`wine-mono`，Archlinux默认没有开启`Multilib`仓库，需要编辑`/etc/pacman.conf`，取消对应行前面的注释([Archlinux wiki](https://wiki.archlinux.org/index.php/Official_repositories#multilib)):
 
 ```diff
 # If you want to run 32 bit applications on your x86_64 system,
@@ -101,6 +101,7 @@ sudo pacman -U #下载的包名
 
 |   QQ版本    | wine版本 | 兼容性 |        备注        | deepin-wine版本 | 兼容性 | 备注 |
 | :---------: | :------: | :----: | :----------------: | :-------------: | :----: | :--: |
+| 9.3.3.27009 |   5.8    |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.3.2.26869 |   5.8    |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.1.8.26211 |  4.20-1  |  支持  |                    |                 |        |      |
 | 9.1.8.26211 |  4.18-1  |  部分  | 不能使用中文输入法 |                 |        |      |
@@ -248,6 +249,7 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 
 ## 更新日志
 
+* 2020-05-22 QQ-9.3.3.27009
 * 2020-05-11 QQ-9.3.2.26869
 * 2019-11-17 QQ-9.1.8.26211 deepin.com.qq.im_9.1.8deepin0
 * 2019-09-21 QQ-9.1.8.26211 deepin.com.qq.im_8.9.19983deepin23
