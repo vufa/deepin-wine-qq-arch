@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.3.3.27009-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.3.3.27011-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -35,14 +35,12 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
         - [2. 对于非 GNOME 桌面(KDE, XFCE等)](#2-对于非-gnome-桌面kde-xfce等)
         - [3. 删除已安装的QQ目录](#3-删除已安装的qq目录)
         - [4. 修复 `deepin-wine` 字体渲染发虚](#4-修复-deepin-wine-字体渲染发虚)
-- [字体](#字体)
-    - [使用其他字体](#使用其他字体)
-    - [修复字体模糊](#修复字体模糊)
 - [常见问题及解决](#常见问题及解决)
     - [不能记住密码](#不能记住密码)
     - [网络连接状态改变后不能重连](#网络连接状态改变后不能重连)
     - [高分辨率屏幕支持](#高分辨率屏幕支持)
     - [使用全局截图快捷键](#使用全局截图快捷键)
+    - [使用其他字体](#使用其他字体)
 - [感谢](#感谢)
 - [更新日志](#更新日志)
 
@@ -101,6 +99,7 @@ sudo pacman -U #下载的包名
 
 |   QQ版本    | wine版本 | 兼容性 |        备注        | deepin-wine版本 | 兼容性 | 备注 |
 | :---------: | :------: | :----: | :----------------: | :-------------: | :----: | :--: |
+| 9.3.3.27011 |   5.9    |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.3.3.27009 |   5.8    |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.3.2.26869 |   5.8    |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.1.8.26211 |  4.20-1  |  支持  |                    |                 |        |      |
@@ -191,35 +190,6 @@ yay -S lib32-freetype2-infinality-ultimate
 
 **注意：切换到 `deepin-wine` 后，对 `wine` 的修改，如更改dpi，都改为对 `deepin-wine` 的修改**
 
-## 字体
-
-### 使用其他字体
-
-默认使用文泉驿微米黑(`wqy-microhei`)字体，目前有字体虚化、模糊问题，可以使用Windows平台常用字体替代，直接将字体文件或字体链接文件放置到字体文件夹就会生效，不会影响系统字体
-
-字体文件夹在：`$HOME/.deepinwine/Deepin-QQ/drive_c/windows/Fonts`
-
-Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list>
-
-* 中易宋体(SimSun)：`simsun.ttf` 或 `simsun.ttc`，图为SimSun, Regular：
-
-  ![simsun](simsun.png)
-
-* 微软雅黑(Microsoft YaHei)：`msyh.ttf`或`msyh.ttc`，图为Microsoft YaHei, Regular：
-
-  ![msyh](msyh.png)
-
-  Microsoft YaHei, Bold：
-
-  ![msyhb](msyhb.png)
-
-* (繁体)细明体(MingLiU)：`mingliu.ttf` 或 `mingliu.ttc`
-
-* (繁体)新细明体(PMingLiU)：`pmingliu.ttf` 或 `pmingliu.ttc`
-
-### 修复字体模糊
-
-参见：[deepin-wine-tim-arch#修复字体模糊](https://github.com/countstarlight/deepin-wine-tim-arch#%E4%BF%AE%E5%A4%8D%E5%AD%97%E4%BD%93%E6%A8%A1%E7%B3%8A)
 
 ## 常见问题及解决
 
@@ -233,11 +203,27 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 
 ### 高分辨率屏幕支持
 
-在 2k/4k 屏幕下字体和图标都非常小, 参见[issue1](https://github.com/countstarlight/deepin-wine-tim-arch/issues/1)
+在 `winecfg` 的Graphics选项卡中修改dpi，如 修改为`210`：
+
+```bash
+env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" winecfg
+```
+
+对于 `deepin-wine` ：
+
+```bash
+env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
+```
 
 ### 使用全局截图快捷键
 
 使用全局截图快捷键和解决Gnome上窗口化问题，参见[issue2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)
+
+### 使用其他字体
+
+默认使用文泉驿微米黑(`wqy-microhei`)字体，可以使用Windows平台常用字体替代，直接将字体文件或字体链接文件放置到字体文件夹就会生效，不会影响系统字体
+
+字体文件夹在：`$HOME/.deepinwine/Deepin-QQ/drive_c/windows/Fonts`
 
 ## 感谢
 
@@ -249,6 +235,7 @@ Windows 10自带字体及版本：<https://docs.microsoft.com/en-us/typography/f
 
 ## 更新日志
 
+* 2020-06-05 QQ-9.3.3.27011
 * 2020-05-22 QQ-9.3.3.27009
 * 2020-05-11 QQ-9.3.2.26869
 * 2019-11-17 QQ-9.1.8.26211 deepin.com.qq.im_9.1.8deepin0
