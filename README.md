@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.3.3.27011-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.3.5.27030-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -99,6 +99,7 @@ sudo pacman -U #下载的包名
 
 |   QQ版本    | wine版本 | 兼容性 |        备注        | deepin-wine版本 | 兼容性 | 备注 |
 | :---------: | :------: | :----: | :----------------: | :-------------: | :----: | :--: |
+| 9.3.5.27030 |   5.10   |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.3.3.27011 |   5.9    |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.3.3.27009 |   5.8    |  支持  |                    |    2.18_22-3    |  支持  |      |
 | 9.3.2.26869 |   5.8    |  支持  |                    |    2.18_22-3    |  支持  |      |
@@ -235,6 +236,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 
 ## 更新日志
 
+* 2020-06-19 QQ-9.3.5.27030
 * 2020-06-05 QQ-9.3.3.27011
 * 2020-05-22 QQ-9.3.3.27009
 * 2020-05-11 QQ-9.3.2.26869
