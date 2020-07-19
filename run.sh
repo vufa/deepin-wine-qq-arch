@@ -10,7 +10,7 @@ WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
 APPVER="9.1.8deepin0"
 QQ_INSTALLER="PCQQ2020"
-QQ_VER="9.3.5.27030"
+QQ_VER="9.3.6.27263"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"
@@ -95,29 +95,42 @@ CreateBottle()
     fi
 }
 
+msg()
+{
+	ECHO_LEVEL=("\033[1;32m==> " "\033[1;31m==> ERROR: ")
+    echo -e "${ECHO_LEVEL[$1]}\033[1;37m$2\033[0m"
+}
+
 SwitchToDeepinWine()
 {
 	PACKAGE_MANAGER="yay"
+	DEEPIN_WINE_DEPENDS="deepin-wine"
 	if ! [ -x "$(command -v yay)" ]; then
 		if ! [ -x "$(command -v yaourt)" ]; then
-			echo "Error: Need to install 'yay' or 'yaourt' first." >&2
+			msg 1 "Need to install 'yay' or 'yaourt' first." >&2
 			exit 1
 		else
 			$PACKAGE_MANAGER="yaourt"
 		fi
     fi
-	echo -e "\033[0;34mInstalling dependencies ...\033[0m"
-	$PACKAGE_MANAGER -S deepin-wine xsettingsd lib32-freetype2-infinality-ultimate --needed
-	echo -e "\033[0;34mRedeploying app ...\033[0m"
+	if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]]; then
+		DEEPIN_WINE_DEPENDS="${DEEPIN_WINE_DEPENDS} xsettingsd"
+	fi
+	if [ "$XDG_CURRENT_DESKTOP" = "Deepin" ]; then
+        DEEPIN_WINE_DEPENDS="${DEEPIN_WINE_DEPENDS} lib32-freetype2-infinality-ultimate"
+	fi
+	msg 0 "Installing dependencies: ${DEEPIN_WINE_DEPENDS} ..."
+	$PACKAGE_MANAGER -S ${DEEPIN_WINE_DEPENDS} --needed
+	msg 0 "Redeploying app ..."
 	if [ -d "$WINEPREFIX" ]; then
 		RemoveApp
 	fi
 	DeployApp
-	echo -e "\033[0;34mReversing the patch ...\033[0m"
+	msg 0 "Reversing the patch ..."
 	patch -p1 -R -d  ${WINEPREFIX} < $APPDIR/reg.patch
-	echo -e "\033[0;34mCreating flag file '$WINEPREFIX/deepin' ...\033[0m"
+	msg 0 "Creating flag file '$WINEPREFIX/deepin' ..."
 	touch -f $WINEPREFIX/deepin
-	echo -e "\033[0;34mDone.\033[0m"
+	msg 0 "Done."
 }
 
 # Init
