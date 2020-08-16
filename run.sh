@@ -10,7 +10,7 @@ WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
 APPVER="9.1.8deepin0"
 QQ_INSTALLER="PCQQ2020"
-QQ_VER="9.3.6.27263"
+QQ_VER="9.3.7.27301"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"
@@ -98,7 +98,7 @@ CreateBottle()
 msg()
 {
 	ECHO_LEVEL=("\033[1;32m==> " "\033[1;31m==> ERROR: ")
-    echo -e "${ECHO_LEVEL[$1]}\033[1;37m$2\033[0m"
+	echo -e "${ECHO_LEVEL[$1]}\033[1;37m$2\033[0m"
 }
 
 SwitchToDeepinWine()
@@ -112,12 +112,12 @@ SwitchToDeepinWine()
 		else
 			$PACKAGE_MANAGER="yaourt"
 		fi
-    fi
+	fi
 	if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]]; then
 		DEEPIN_WINE_DEPENDS="${DEEPIN_WINE_DEPENDS} xsettingsd"
 	fi
 	if [ "$XDG_CURRENT_DESKTOP" = "Deepin" ]; then
-        DEEPIN_WINE_DEPENDS="${DEEPIN_WINE_DEPENDS} lib32-freetype2-infinality-ultimate"
+		DEEPIN_WINE_DEPENDS="${DEEPIN_WINE_DEPENDS} lib32-freetype2-infinality-ultimate"
 	fi
 	msg 0 "Installing dependencies: ${DEEPIN_WINE_DEPENDS} ..."
 	$PACKAGE_MANAGER -S ${DEEPIN_WINE_DEPENDS} --needed

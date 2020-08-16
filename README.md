@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.3.6.27263-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.3.7.27301-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -48,7 +48,7 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
 
 ## 安装
 
-`deepin-wine-qq`依赖`Multilib`仓库中的`wine`，`wine-gecko`和`wine-mono`，Archlinux默认没有开启`Multilib`仓库，需要编辑`/etc/pacman.conf`，取消对应行前面的注释([Archlinux wiki](https://wiki.archlinux.org/index.php/Official_repositories#multilib)):
+`deepin-wine-qq` 依赖`Multilib`仓库中的 `wine`，`wine-gecko` 和 `wine-mono`，Archlinux默认没有开启 `Multilib`仓库，需要编辑`/etc/pacman.conf`，取消对应行前面的注释([Archlinux wiki](https://wiki.archlinux.org/index.php/Official_repositories#multilib)):
 
 ```diff
 # If you want to run 32 bit applications on your x86_64 system,
@@ -65,7 +65,7 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
 
 ### 从AUR安装
 
-已添加到AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
+已添加到 AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
 
 ```shell
 yay -S deepin-wine-qq
@@ -73,12 +73,18 @@ yay -S deepin-wine-qq
 
 ### 用安装包安装
 
-> 由[Travis CI](https://travis-ci.org/countstarlight/deepin-wine-qq-arch)在Docker容器[mikkeloscar/arch-travis](https://hub.docker.com/r/mikkeloscar/arch-travis)中自动构建的ArchLinux安装包
+> 由 [Travis CI](https://travis-ci.org/countstarlight/deepin-wine-qq-arch) 在 Docker 容器 [mikkeloscar/arch-travis](https://hub.docker.com/r/mikkeloscar/arch-travis) 中自动构建的 ArchLinux 安装包
 
-在[GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases)页面下载 `.pkg.tar.xz`后缀的安装包，使用`pacman`安装：
+在[GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases) 页面下载后缀为 `.pkg.tar.xz` 或 `.pkg.tar.zst` 的安装包，使用`pacman`安装：
 
 ```bash
 sudo pacman -U #下载的包名
+```
+
+`.md5` 文件用于校验包完整性：
+
+```bash
+md5sum -c *.md5
 ```
 
 ### 本地打包安装
@@ -99,6 +105,7 @@ sudo pacman -U #下载的包名
 
 |     QQ      |  wine  | 兼容性 |        备注        | deepin-wine | 兼容性 | 备注 |
 | :---------: | :----: | :----: | :----------------: | :---------: | :----: | :--: |
+| 9.3.7.27301 |  5.15  |  支持  |                    |  2.18_24-3  |  支持  |      |
 | 9.3.6.27263 |  5.12  |  支持  |                    |  2.18_22-3  |  支持  |      |
 | 9.3.5.27030 |  5.10  |  支持  |                    |  2.18_22-3  |  支持  |      |
 | 9.3.3.27011 |  5.9   |  支持  |                    |  2.18_22-3  |  支持  |      |
@@ -192,7 +199,6 @@ yay -S lib32-freetype2-infinality-ultimate
 
 **注意：切换到 `deepin-wine` 后，对 `wine` 的修改，如更改dpi，都改为对 `deepin-wine` 的修改**
 
-
 ## 常见问题及解决
 
 ### 不能记住密码
@@ -205,7 +211,9 @@ yay -S lib32-freetype2-infinality-ultimate
 
 ### 高分辨率屏幕支持
 
-在 `winecfg` 的Graphics选项卡中修改dpi，如 修改为`210`：
+在 `winecfg` 的Graphics选项卡中修改dpi，如 修改为`192`
+
+对于 `wine`：
 
 ```bash
 env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" winecfg
@@ -237,6 +245,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 
 ## 更新日志
 
+* 2020-08-16 QQ-9.3.7.27301
 * 2020-07-19 QQ-9.3.6.27263
 * 2020-06-19 QQ-9.3.5.27030
 * 2020-06-05 QQ-9.3.3.27011
