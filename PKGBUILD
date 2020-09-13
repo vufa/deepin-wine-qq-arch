@@ -1,7 +1,7 @@
 # Maintainer: Codist <countstarlight@gmail.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.3.7.27301
+pkgver=9.3.8.27381
 qq_installer=PCQQ2020
 deepinqqver=9.1.8deepin0
 pkgrel=1
@@ -18,9 +18,9 @@ source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqve
   "run.sh"
   "reg.patch")
 md5sums=('d35bd4abfd1ac4c5e71c7fbc5282ccbd'
-  '46878fd9908c8a099cbd308f9314ade6'
-  'c2802529fb307e2feb2f9e9dcfaba1c0'
-  '4b131fb1e7cf8fdf695876032842b39d')
+  '1a777a9071509e30e9597f7f814219cd'
+  'f33ff6e53eaaa7e5d427e365d76d5875'
+  '779ac006922a4668a549be743a3fa984')
 
 build() {
   msg "Extracting DPKG package ..."
