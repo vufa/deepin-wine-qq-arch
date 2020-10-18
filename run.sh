@@ -10,7 +10,7 @@ WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
 APPVER="9.1.8deepin0"
 QQ_INSTALLER="PCQQ2020"
-QQ_VER="9.3.8.27381"
+QQ_VER="9.3.9.27427"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"
@@ -137,6 +137,9 @@ SwitchToDeepinWine()
 if [ -f "$WINEPREFIX/deepin" ]; then
 	WINE_CMD="deepin-wine"
 	if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]] && [[ -z "$(ps -e | grep -o xsettingsd)" ]]; then
+		if [[ ! -f "$HOME/.xsettingsd" ]] && [[ ! -f "$HOME/.config/xsettingsd/xsettingsd.conf" ]] && [[ ! -f "/etc/xsettingsd/xsettingsd.conf" ]]; then
+			touch "$HOME/.config/xsettingsd/xsettingsd.conf"
+		fi
 		/usr/bin/xsettingsd &
 	fi
 fi

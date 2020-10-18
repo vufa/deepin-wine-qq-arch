@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.3.8.27381-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.3.9.27427-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -63,6 +63,10 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
 +Include = /etc/pacman.d/mirrorlist
 ```
 
+**注意：由于新版QQ可能需要 `wine` 还没有实现的一些win api，这会导致一些功能不可用，安装前先根据[兼容性记录](#兼容性记录)选择一个合适的版本**
+
+以下三种安装方式效果相同，选择一种即可
+
 ### 从AUR安装
 
 已添加到 AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
@@ -105,6 +109,7 @@ md5sum -c *.md5
 
 |     QQ      |  wine  |   兼容性   |        备注        | deepin-wine | 兼容性 | 备注 |
 | :---------: | :----: | :--------: | :----------------: | :---------: | :----: | :--: |
+| 9.3.9.27427 |  5.19  |    支持    |                    |  2.18_24-3  |  支持  |      |
 | 9.3.8.27381 |  5.17  | **不支持** |      无法启动      |  2.18_24-3  |  支持  |      |
 | 9.3.7.27301 |  5.15  |    支持    |                    |  2.18_24-3  |  支持  |      |
 | 9.3.6.27263 |  5.12  |    支持    |                    |  2.18_22-3  |  支持  |      |
@@ -246,6 +251,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 
 ## 更新日志
 
+* 2020-10-18 QQ-9.3.9.27427
 * 2020-09-13 QQ-9.3.8.27381
 * 2020-08-16 QQ-9.3.7.27301
 * 2020-07-19 QQ-9.3.6.27263
