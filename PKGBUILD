@@ -12,14 +12,14 @@ license=('custom')
 depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
-_mirror="https://mirrors.ustc.edu.cn/deepin"
+_mirror="https://ftp.sjtu.edu.cn/deepin"
 source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqver}_i386.deb"
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
   "run.sh"
   "reg.patch")
 md5sums=('d35bd4abfd1ac4c5e71c7fbc5282ccbd'
   '1c2ce821184b8e9304d728d3ce81f639'
-  '1a66f3d79817c083a6fb18ef3638a444'
+  'bb4dcd15a7122e75a4abe010e6f1d741'
   '1ef3c4bf135be4c56776118f89ed14d1')
 
 build() {

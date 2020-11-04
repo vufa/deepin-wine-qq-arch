@@ -19,7 +19,7 @@
   </a>
 </p>
 
-Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定制的注册表配置，QQ安装包替换为官方最新
+Deepin 打包的 QQ 容器移植到 Archlinux，不依赖 `deepin-wine`，包含定制的注册表配置，QQ 安装包替换为官方最新
 
 <!-- TOC -->
 
@@ -31,7 +31,7 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
 - [切换到 `deepin-wine`](#切换到-deepin-wine)
     - [自动切换(推荐)](#自动切换推荐)
     - [手动切换](#手动切换)
-        - [1. 安装 deepin-wine](#1-安装-deepin-wine)
+        - [1. 安装 `deepin-wine`](#1-安装-deepin-wine)
         - [2. 对于非 GNOME 桌面(KDE, XFCE等)](#2-对于非-gnome-桌面kde-xfce等)
         - [3. 删除已安装的QQ目录](#3-删除已安装的qq目录)
         - [4. 修复 `deepin-wine` 字体渲染发虚](#4-修复-deepin-wine-字体渲染发虚)
@@ -39,7 +39,7 @@ Deepin打包的QQ容器移植到Archlinux，不依赖`deepin-wine`，包含定�
     - [不能记住密码](#不能记住密码)
     - [网络连接状态改变后不能重连](#网络连接状态改变后不能重连)
     - [高分辨率屏幕支持](#高分辨率屏幕支持)
-    - [使用全局截图快捷键](#使用全局截图快捷键)
+    - [GNOME 桌面上的悬浮窗口问题](#gnome-桌面上的悬浮窗口问题)
     - [使用其他字体](#使用其他字体)
 - [感谢](#感谢)
 - [更新日志](#更新日志)
@@ -79,7 +79,7 @@ yay -S deepin-wine-qq
 
 > 由 [Travis CI](https://travis-ci.org/countstarlight/deepin-wine-qq-arch) 在 Docker 容器 [mikkeloscar/arch-travis](https://hub.docker.com/r/mikkeloscar/arch-travis) 中自动构建的 ArchLinux 安装包
 
-在[GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases) 页面下载后缀为 `.pkg.tar.xz` 或 `.pkg.tar.zst` 的安装包，使用`pacman`安装：
+在 [GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases) 页面下载后缀为 `.pkg.tar.xz` 或 `.pkg.tar.zst` 的安装包，使用`pacman`安装：
 
 ```bash
 sudo pacman -U #下载的包名
@@ -101,9 +101,9 @@ md5sum -c *.md5
  makepkg -si
 ```
 
-* 运行应用菜单中创建的QQ快捷方式
+用上述三种安装方式之一安装完成后，运行应用菜单中创建的 QQ 快捷方式，首次运行会用 QQ 的安装包进行安装
 
-* **前几次运行时可能会提示 "qq安全组件异常"，等一会再运行或重启一下系统**
+**NOTE: 前几次运行时可能会提示 "qq安全组件异常"，等一会再运行或重启一下系统**
 
 ## 兼容性记录
 
@@ -124,11 +124,11 @@ md5sum -c *.md5
 
 ## 切换到 `deepin-wine`
 
+> 根据 [deepin-wine-wechat-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15#issuecomment-515455845)，[deepin-wine-wechat-arch#27](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/27)，由 [@feileb](https://github.com/feileb), [@violetbobo](https://github.com/violetbobo), [@HE7086](https://github.com/HE7086)提供的方法
+
 原版 `wine` 在 [DDE(Deepin Desktop Environment)](https://www.deepin.org/dde/) 上，有托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))的问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine`。
 
 **注意：切换前先确保 `deepin-wine` 支持**
-
-根据 [deepin-wine-wechat-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15#issuecomment-515455845)，[deepin-wine-wechat-arch#27](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/27)，由 [@feileb](https://github.com/feileb), [@violetbobo](https://github.com/violetbobo), [@HE7086](https://github.com/HE7086)提供的方法：
 
 ### 自动切换(推荐)
 
@@ -136,7 +136,7 @@ md5sum -c *.md5
 /opt/deepinwine/apps/Deepin-QQ/run.sh -d
 ```
 
-这会安装需要的依赖，移除已安装的微信目录并回退对注册表文件的修改
+这会安装需要的依赖，移除已安装的 QQ 目录并回退对注册表文件的修改
 
 切换回 `wine`：
 
@@ -152,7 +152,7 @@ sudo pacman -Rns deepin-wine xsettingsd lib32-freetype2-infinality-ultimate
 
 ### 手动切换
 
-#### 1. 安装 deepin-wine
+#### 1. 安装 `deepin-wine`
 
 ```bash
 yay -S deepin-wine
@@ -160,9 +160,9 @@ yay -S deepin-wine
 
 #### 2. 对于非 GNOME 桌面(KDE, XFCE等)
 
-需要安装 `xsettingsd`：
+> 根据 [deepin-wine-wechat-arch#36](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/36#issuecomment-612001200)，由[Face-Smile](https://github.com/Face-Smile)提供的方法
 
-根据 [deepin-wine-wechat-arch#36](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/36#issuecomment-612001200)，由[Face-Smile](https://github.com/Face-Smile)提供的方法：
+需要安装 `xsettingsd`：
 
 ```bash
 sudo pacman -S xsettingsd
@@ -231,9 +231,11 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" winecfg
 env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 ```
 
-### 使用全局截图快捷键
+### GNOME 桌面上的悬浮窗口问题
 
-使用全局截图快捷键和解决Gnome上窗口化问题，参见[issue2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)
+> 根据 [deepin-wine-tim-arch#2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)，由[EricDracula](https://github.com/EricDracula)提供的方法
+
+安装 GNOME 插件: [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)
 
 ### 使用其他字体
 
@@ -251,6 +253,9 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 
 ## 更新日志
 
+<details open>
+<summary>2020</summary>
+
 * 2020-10-18 QQ-9.3.9.27427
 * 2020-09-13 QQ-9.3.8.27381
 * 2020-08-16 QQ-9.3.7.27301
@@ -259,11 +264,23 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 * 2020-06-05 QQ-9.3.3.27011
 * 2020-05-22 QQ-9.3.3.27009
 * 2020-05-11 QQ-9.3.2.26869
+
+</details>
+<details>
+<summary>2019</summary>
+
 * 2019-11-17 QQ-9.1.8.26211 deepin.com.qq.im_9.1.8deepin0
 * 2019-09-21 QQ-9.1.8.26211 deepin.com.qq.im_8.9.19983deepin23
 * 2019-04-19 QQ-9.1.1.24953
 * 2019-03-18 QQ-9.1.0.24712
 * 2019-03-06 QQ-9.0.9.24445
 * 2019-02-05 QQ-9.0.9_1
+
+</details>
+<details>
+<summary>2017</summary>
+
 * 2017-12-31 QQ-8.9.6
+
+</details>
 

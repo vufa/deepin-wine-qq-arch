@@ -20,13 +20,13 @@ pkgbase = deepin-wine-qq
 	depends = lib32-gnutls
 	conflicts = deepin-qq-im
 	conflicts = deepin.com.qq.im
-	source = https://mirrors.ustc.edu.cn/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_9.1.8deepin0_i386.deb
+	source = https://ftp.sjtu.edu.cn/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_9.1.8deepin0_i386.deb
 	source = PCQQ2020-9.3.9.27427.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/PCQQ2020.exe
 	source = run.sh
 	source = reg.patch
 	md5sums = d35bd4abfd1ac4c5e71c7fbc5282ccbd
 	md5sums = 1c2ce821184b8e9304d728d3ce81f639
-	md5sums = 1a66f3d79817c083a6fb18ef3638a444
+	md5sums = bb4dcd15a7122e75a4abe010e6f1d741
 	md5sums = 1ef3c4bf135be4c56776118f89ed14d1
 
 pkgname = deepin-wine-qq
