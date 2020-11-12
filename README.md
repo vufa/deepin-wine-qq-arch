@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.3.9.27427-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.4.0.27525-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -109,6 +109,7 @@ md5sum -c *.md5
 
 |     QQ      |  wine  |   兼容性   |        备注        | deepin-wine | 兼容性 | 备注 |
 | :---------: | :----: | :--------: | :----------------: | :---------: | :----: | :--: |
+| 9.4.0.27525 |  5.21  | **不支持** |                    |  2.18_24-3  |  支持  |      |
 | 9.3.9.27427 |  5.19  |    支持    |                    |  2.18_24-3  |  支持  |      |
 | 9.3.8.27381 |  5.17  | **不支持** |      无法启动      |  2.18_24-3  |  支持  |      |
 | 9.3.7.27301 |  5.15  |    支持    |                    |  2.18_24-3  |  支持  |      |
@@ -256,6 +257,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 <details open>
 <summary>2020</summary>
 
+* 2020-11-12 QQ-9.4.0.27525
 * 2020-10-18 QQ-9.3.9.27427
 * 2020-09-13 QQ-9.3.8.27381
 * 2020-08-16 QQ-9.3.7.27301

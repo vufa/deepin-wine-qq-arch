@@ -29,7 +29,7 @@ diff -ruN reg_tmp/system.reg reg_tmp_fixed/system.reg
  [Software\\Tencent\\PlatForm_Type_List\\1] 1486366185
  #time=1d2804aca40187a
 -"TypeName"="QQ8.9"
-+"TypeName"="QQ9.3.9"
++"TypeName"="QQ9.4.0"
  "TypePath"="C:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
  
  [Software\\Tencent\\PlatForm_Type_List\\3] 1486366142
@@ -41,7 +41,7 @@ diff -ruN reg_tmp/user.reg reg_tmp_fixed/user.reg
  [Software\\Tencent\\PlatForm_Type_List\\1] 1486366185
  #time=1d2804aca401244
 -"TypeName"="QQ8.9"
-+"TypeName"="QQ9.3.9"
++"TypeName"="QQ9.4.0"
  "TypePath"="C:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
  
  [Software\\Tencent\\Plugin\\VAS\\842404343] 1486366176

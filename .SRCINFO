@@ -1,6 +1,6 @@
 pkgbase = deepin-wine-qq
 	pkgdesc = Tencent QQ (com.qq.im) on Deepin Wine For Archlinux
-	pkgver = 9.3.9.27427
+	pkgver = 9.4.0.27525
 	pkgrel = 1
 	url = http://im.qq.com/
 	install = deepin-wine-qq.install
@@ -21,13 +21,13 @@ pkgbase = deepin-wine-qq
 	conflicts = deepin-qq-im
 	conflicts = deepin.com.qq.im
 	source = https://ftp.sjtu.edu.cn/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_9.1.8deepin0_i386.deb
-	source = PCQQ2020-9.3.9.27427.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/PCQQ2020.exe
+	source = PCQQ2020-9.4.0.27525.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/PCQQ2020.exe
 	source = run.sh
 	source = reg.patch
 	md5sums = d35bd4abfd1ac4c5e71c7fbc5282ccbd
-	md5sums = 1c2ce821184b8e9304d728d3ce81f639
-	md5sums = bb4dcd15a7122e75a4abe010e6f1d741
-	md5sums = 1ef3c4bf135be4c56776118f89ed14d1
+	md5sums = dfad1e7605c1fec9ce51dbbbc1f7f1eb
+	md5sums = 4c94025ae6183d855433fb4a68e483c1
+	md5sums = 62d7de16a69fd99bca881f801187ba13
 
 pkgname = deepin-wine-qq
 
