@@ -18,7 +18,7 @@ source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqve
   "run.sh"
   "reg.patch")
 md5sums=('d35bd4abfd1ac4c5e71c7fbc5282ccbd'
-  '1c2ce821184b8e9304d728d3ce81f639'
+  'dfad1e7605c1fec9ce51dbbbc1f7f1eb'
   'bb4dcd15a7122e75a4abe010e6f1d741'
   '1ef3c4bf135be4c56776118f89ed14d1')
 
