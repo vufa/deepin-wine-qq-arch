@@ -10,7 +10,7 @@ WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
 APPDIR="/opt/deepinwine/apps/Deepin-QQ"
 APPVER="9.1.8deepin0"
 QQ_INSTALLER="PCQQ2020"
-QQ_VER="9.4.0.27525"
+QQ_VER="9.4.1.27572"
 APPTAR="files.7z"
 PACKAGENAME="com.qq.im"
 WINE_CMD="wine"
@@ -20,7 +20,7 @@ HelpApp()
 	echo " Extra Commands:"
 	echo " -r/--reset     Reset app to fix errors"
 	echo " -e/--remove    Remove deployed app files"
-	echo " -d/--deepin    Switch to 'deepin-wine'"
+	echo " -d/--deepin    Switch to 'deepin-wine5'"
 	echo " -h/--help      Show program help info"
 }
 CallApp()
@@ -104,7 +104,7 @@ msg()
 SwitchToDeepinWine()
 {
 	PACKAGE_MANAGER="yay"
-	DEEPIN_WINE_DEPENDS="deepin-wine"
+	DEEPIN_WINE_DEPENDS="deepin-wine5"
 	if ! [ -x "$(command -v yay)" ]; then
 		if ! [ -x "$(command -v yaourt)" ]; then
 			msg 1 "Need to install 'yay' or 'yaourt' first." >&2
@@ -135,7 +135,7 @@ SwitchToDeepinWine()
 
 # Init
 if [ -f "$WINEPREFIX/deepin" ]; then
-	WINE_CMD="deepin-wine"
+	WINE_CMD="deepin-wine5"
 	if [[ -z "$(ps -e | grep -o gsd-xsettings)" ]] && [[ -z "$(ps -e | grep -o xsettingsd)" ]]; then
 		if [[ ! -f "$HOME/.xsettingsd" ]] && [[ ! -f "$HOME/.config/xsettingsd/xsettingsd.conf" ]] && [[ ! -f "/etc/xsettingsd/xsettingsd.conf" ]]; then
 			mkdir -p "$HOME/.config/xsettingsd" && touch "$HOME/.config/xsettingsd/xsettingsd.conf"
