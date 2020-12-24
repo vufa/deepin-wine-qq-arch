@@ -1,9 +1,10 @@
 # Maintainer: Codist <countstarlight@gmail.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.4.0.27525
+pkgver=9.4.1.27572
 qq_installer=PCQQ2020
 deepinqqver=9.1.8deepin0
+debpkgname="deepin.com.qq.im"
 pkgrel=1
 pkgdesc="Tencent QQ (com.qq.im) on Deepin Wine For Archlinux"
 arch=("x86_64")
@@ -12,14 +13,14 @@ license=('custom')
 depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
-_mirror="https://ftp.sjtu.edu.cn/deepin"
-source=("$_mirror/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_${deepinqqver}_i386.deb"
+_mirror="https://mirrors.njupt.edu.cn"
+source=("$_mirror/deepin/pool/non-free/d/${debpkgname}/${debpkgname}_${deepinqqver}_i386.deb"
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
   "run.sh"
   "reg.patch")
 md5sums=('d35bd4abfd1ac4c5e71c7fbc5282ccbd'
-  'dfad1e7605c1fec9ce51dbbbc1f7f1eb'
-  '4c94025ae6183d855433fb4a68e483c1'
+  '554b662419788aa893b5e342426f8548'
+  '026bed7d6008f8125d6628ef8e9249a6'
   '62d7de16a69fd99bca881f801187ba13')
 
 build() {

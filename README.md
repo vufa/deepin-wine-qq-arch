@@ -19,7 +19,7 @@
   </a>
 </p>
 
-Deepin 打包的 QQ 容器移植到 Archlinux，不依赖 `deepin-wine`，包含定制的注册表配置，QQ 安装包替换为官方最新
+Deepin 打包的 QQ 容器移植到 Archlinux，不依赖 `deepin-wine5`，包含定制的注册表配置，QQ 安装包替换为官方最新
 
 <!-- TOC -->
 
@@ -108,28 +108,29 @@ md5sum -c *.md5
 ## 兼容性记录
 
 |     QQ      |  wine  |   兼容性   |        备注        | deepin-wine | 兼容性 | 备注 |
-| :---------: | :----: | :--------: | :----------------: | :---------: | :----: | :--: |
-| 9.4.0.27525 |  5.21  | **不支持** |                    |  2.18_24-3  |  支持  |      |
-| 9.3.9.27427 |  5.19  |    支持    |                    |  2.18_24-3  |  支持  |      |
-| 9.3.8.27381 |  5.17  | **不支持** |      无法启动      |  2.18_24-3  |  支持  |      |
-| 9.3.7.27301 |  5.15  |    支持    |                    |  2.18_24-3  |  支持  |      |
-| 9.3.6.27263 |  5.12  |    支持    |                    |  2.18_22-3  |  支持  |      |
-| 9.3.5.27030 |  5.10  |    支持    |                    |  2.18_22-3  |  支持  |      |
-| 9.3.3.27011 |  5.9   |    支持    |                    |  2.18_22-3  |  支持  |      |
-| 9.3.3.27009 |  5.8   |    支持    |                    |  2.18_22-3  |  支持  |      |
-| 9.3.2.26869 |  5.8   |    支持    |                    |  2.18_22-3  |  支持  |      |
-| 9.1.8.26211 | 4.20-1 |    支持    |                    |             |        |      |
-| 9.1.8.26211 | 4.18-1 |    部分    | 不能使用中文输入法 |             |        |      |
-| 9.1.8.26211 | 4.17-1 |    部分    | 不能使用中文输入法 |             |        |      |
-| 9.1.8.26211 | 4.16-1 |    支持    |                    |             |        |      |
+| :---------: | :----: | :--------: | :----------------: | :----------: | :----: | :--: |
+| 9.4.1.27572 |  5.22  | **不支持** |                    |  5.0.16-1    |  支持  |      |
+| 9.4.0.27525 |  5.21  | **不支持** |                    |  2.18_24-3   |  支持  |      |
+| 9.3.9.27427 |  5.19  |    支持    |                    |  2.18_24-3   |  支持  |      |
+| 9.3.8.27381 |  5.17  | **不支持** |      无法启动      |  2.18_24-3   |  支持  |      |
+| 9.3.7.27301 |  5.15  |    支持    |                    |  2.18_24-3   |  支持  |      |
+| 9.3.6.27263 |  5.12  |    支持    |                    |  2.18_22-3   |  支持  |      |
+| 9.3.5.27030 |  5.10  |    支持    |                    |  2.18_22-3   |  支持  |      |
+| 9.3.3.27011 |  5.9   |    支持    |                    |  2.18_22-3   |  支持  |      |
+| 9.3.3.27009 |  5.8   |    支持    |                    |  2.18_22-3   |  支持  |      |
+| 9.3.2.26869 |  5.8   |    支持    |                    |  2.18_22-3   |  支持  |      |
+| 9.1.8.26211 | 4.20-1 |    支持    |                    |              |        |      |
+| 9.1.8.26211 | 4.18-1 |    部分    | 不能使用中文输入法 |              |        |      |
+| 9.1.8.26211 | 4.17-1 |    部分    | 不能使用中文输入法 |              |        |      |
+| 9.1.8.26211 | 4.16-1 |    支持    |                    |              |        |      |
 
-## 切换到 `deepin-wine`
+## 切换到 `deepin-wine5`
 
 > 根据 [deepin-wine-wechat-arch#15](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/15#issuecomment-515455845)，[deepin-wine-wechat-arch#27](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/27)，由 [@feileb](https://github.com/feileb), [@violetbobo](https://github.com/violetbobo), [@HE7086](https://github.com/HE7086)提供的方法
 
-原版 `wine` 在 [DDE(Deepin Desktop Environment)](https://www.deepin.org/dde/) 上，有托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))的问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine`。
+原版 `wine` 在 [DDE(Deepin Desktop Environment)](https://www.deepin.org/dde/) 上，有托盘图标无法响应鼠标事件([deepin-wine-tim-arch#21](https://github.com/countstarlight/deepin-wine-tim-arch/issues/21))的问题，且原版 `wine` 尚不能实现保存登录密码等功能，可以选择切换到 `deepin-wine5`。
 
-**注意：切换前先确保 `deepin-wine` 支持**
+**注意：切换前先确保 `deepin-wine5` 支持**
 
 ### 自动切换(推荐)
 
@@ -148,15 +149,15 @@ rm ~/.deepinwine/Deepin-QQ/deepin
 如果要卸载自动安装的依赖：
 
 ```bash
-sudo pacman -Rns deepin-wine xsettingsd lib32-freetype2-infinality-ultimate
+sudo pacman -Rns deepin-wine5 xsettingsd lib32-freetype2-infinality-ultimate
 ```
 
 ### 手动切换
 
-#### 1. 安装 `deepin-wine`
+#### 1. 安装 `deepin-wine5`
 
 ```bash
-yay -S deepin-wine
+yay -S deepin-wine5
 ```
 
 #### 2. 对于非 GNOME 桌面(KDE, XFCE等)
@@ -173,7 +174,7 @@ sudo pacman -S xsettingsd
 
 ```diff
 -WINE_CMD="wine"
-+WINE_CMD="deepin-wine"
++WINE_CMD="deepin-wine5"
 
  RunApp()
  {
@@ -194,7 +195,7 @@ sudo pacman -S xsettingsd
 rm -rf ~/.deepinwine/Deepin-QQ
 ```
 
-#### 4. 修复 `deepin-wine` 字体渲染发虚
+#### 4. 修复 `deepin-wine5` 字体渲染发虚
 
 kde桌面参考：[deepin-wine-wechat-arch#36](https://github.com/countstarlight/deepin-wine-wechat-arch/issues/36)
 
@@ -204,7 +205,7 @@ deepin 桌面：
 yay -S lib32-freetype2-infinality-ultimate
 ```
 
-**注意：切换到 `deepin-wine` 后，对 `wine` 的修改，如更改dpi，都改为对 `deepin-wine` 的修改**
+**注意：切换到 `deepin-wine5` 后，对 `wine` 的修改，如更改dpi，都改为对 `deepin-wine5` 的修改**
 
 ## 常见问题及解决
 
@@ -229,7 +230,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" winecfg
 对于 `deepin-wine` ：
 
 ```bash
-env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
+env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine5 winecfg
 ```
 
 ### GNOME 桌面上的悬浮窗口问题
@@ -257,6 +258,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg
 <details open>
 <summary>2020</summary>
 
+* 2020-12-24 QQ-9.4.1.27572
 * 2020-11-12 QQ-9.4.0.27525
 * 2020-10-18 QQ-9.3.9.27427
 * 2020-09-13 QQ-9.3.8.27381
