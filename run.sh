@@ -6,9 +6,10 @@
 #               Peng Hao <penghao@linuxdeepin.com>
 
 #               Codist <countstarlight@gmail.com>
-WINEPREFIX="$HOME/.deepinwine/Deepin-QQ"
-APPDIR="/opt/deepinwine/apps/Deepin-QQ"
-APPVER="9.1.8deepin0"
+#               taotieren <admin@taotieren.com>
+WINEPREFIX="$HOME/.deepinwine/com.qq.im.deepin"
+APPDIR="/opt/apps/com.qq.im.deepin/files"
+APPVER="9.3.2deepin14"
 QQ_INSTALLER="PCQQ2020"
 QQ_VER="9.4.1.27572"
 APPTAR="files.7z"
