@@ -80,7 +80,7 @@ SwitchToDeepinWine()
     extract_archive "$ARCHIVE_FILE_DIR/helper_archive.7z" "$ARCHIVE_FILE_DIR/helper_archive.md5sum" "$SPECIFY_SHELL_DIR"
     $START_SHELL_PATH $BOTTLENAME $APPVER "$EXEC_PATH" -r
     msg 0 "Reversing the patch ..."
-	patch -p1 -R -d  ${WINEPREFIX} < $APPDIR/reg.patch
+	patch -p1 -R -d  ${WINEPREFIX} < $ARCHIVE_FILE_DIR/reg.patch
     echo "5" > $WINEPREFIX/deepin
     rm -f $WINEPREFIX/reinstalled
     msg 0 "Done."

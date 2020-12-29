@@ -6,7 +6,7 @@ pkgver=9.4.2.27655
 qq_installer=PCQQ2020
 deepinqqver=9.3.2deepin14
 debpkgname="com.qq.im.deepin"
-pkgrel=1
+pkgrel=2
 pkgdesc="Tencent QQ on Deepin Wine(${debpkgname}) For Archlinux"
 arch=("x86_64")
 url="https://im.qq.com/"
@@ -21,7 +21,7 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${deepinq
   "reg.patch")
 md5sums=('e12c4b26c791ca32cdc96e5441341148'
   'd52fb334557a14caa2e69ac43b2c29eb'
-  '7fc4572977da7565b202e5337ab782ad'
+  'dbe4de567a272abed3c270b3fcc82f0c'
   'eb76d1e0e8f325856cec59697ae8a256')
 
 build() {
