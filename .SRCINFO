@@ -26,7 +26,7 @@ pkgbase = deepin-wine-qq
 	source = reg.patch
 	md5sums = e12c4b26c791ca32cdc96e5441341148
 	md5sums = d52fb334557a14caa2e69ac43b2c29eb
-	md5sums = dbe4de567a272abed3c270b3fcc82f0c
+	md5sums = 3476136a1f6a1dc5477dfe40da88df36
 	md5sums = eb76d1e0e8f325856cec59697ae8a256
 
 pkgname = deepin-wine-qq
