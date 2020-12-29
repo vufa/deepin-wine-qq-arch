@@ -1,22 +1,24 @@
-diff -ruN reg_tmp/system.reg reg_tmp_fixed/system.reg
---- reg_tmp/system.reg	2019-10-12 14:20:02.000000000 +0800
-+++ reg_tmp_fixed/system.reg	2020-09-13 22:42:20.791480251 +0800
-@@ -35534,15 +35534,16 @@
- [Software\\Microsoft\\Windows\\CurrentVersion\\Winlogon] 1486365954
- #time=1d2804a40822790
+diff --git a/system.reg b/system.reg
+index e449ec1..45f4e6e 100644
+--- a/system.reg
++++ b/system.reg
+@@ -38603,11 +38603,11 @@ WINE REGISTRY Version 2
  
--[Software\\Microsoft\\Windows NT\\CurrentVersion] 1511495762
--#time=1d364d825372332
+ [Software\\Microsoft\\Windows NT\\CurrentVersion] 1600134060
+ #time=1d68b0144225dc8
 -"CSDVersion"="Service Pack 3"
--"CurrentBuildNumber"="2600"
-+[Software\\Microsoft\\Windows NT\\CurrentVersion] 1571657811
-+#time=1d58803d4d74e20
 +"CSDVersion"="Service Pack 1"
-+"CurrentBuild"="7601"
+ "CurrentBuild"="7601"
+-"CurrentBuildNumber"="2600"
 +"CurrentBuildNumber"="7601"
  "CurrentType"="Uniprocessor Free"
 -"CurrentVersion"="5.1"
 +"CurrentVersion"="6.1"
+ "DigitalProductId"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+   00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+   00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+@@ -38617,7 +38617,7 @@ WINE REGISTRY Version 2
+   00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
  "InstallDate"=dword:4be5019a
  "ProductId"="12345-oem-0000001-54321"
 -"ProductName"="Microsoft Windows XP"
@@ -24,32 +26,25 @@ diff -ruN reg_tmp/system.reg reg_tmp_fixed/system.reg
  "RegisteredOrganization"=""
  "RegisteredOwner"=""
  "SystemRoot"="C:\\windows"
-@@ -37190,7 +37191,7 @@
+@@ -41069,7 +41069,7 @@ WINE REGISTRY Version 2
  
- [Software\\Tencent\\PlatForm_Type_List\\1] 1486366185
- #time=1d2804aca40187a
--"TypeName"="QQ8.9"
-+"TypeName"="QQ9.4.0"
- "TypePath"="C:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
+ [Software\\Tencent\\PlatForm_Type_List\\1] 1600133839
+ #time=1d68b00c062f128
+-"TypeName"="QQ9.3.2"
++"TypeName"="QQ9.4.1"
+ "TypePath"="c:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
  
- [Software\\Tencent\\PlatForm_Type_List\\3] 1486366142
-diff -ruN reg_tmp/user.reg reg_tmp_fixed/user.reg
---- reg_tmp/user.reg	2019-10-12 14:20:02.000000000 +0800
-+++ reg_tmp_fixed/user.reg	2020-09-13 22:53:02.871453706 +0800
-@@ -926,7 +926,7 @@
+ [Software\\Tencent\\PlatForm_Type_List\\3] 1592536834
+diff --git a/user.reg b/user.reg
+index 9468a71..e31f02a 100644
+--- a/user.reg
++++ b/user.reg
+@@ -926,7 +926,7 @@ WINE REGISTRY Version 2
  
- [Software\\Tencent\\PlatForm_Type_List\\1] 1486366185
- #time=1d2804aca401244
--"TypeName"="QQ8.9"
-+"TypeName"="QQ9.4.0"
- "TypePath"="C:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
+ [Software\\Tencent\\PlatForm_Type_List\\1] 1600133839
+ #time=1d68b00c062eec6
+-"TypeName"="QQ9.3.2"
++"TypeName"="QQ9.4.1"
+ "TypePath"="c:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe"
  
- [Software\\Tencent\\Plugin\\VAS\\842404343] 1486366176
-@@ -1053,6 +1053,7 @@
- "qqsetupex.exe"=""
- "qqsysmon.sys"=""
- "riched20"="native,builtin"
-+"tencentdl.exe"=""
- "txplatform.exe"=""
- "txupd.exe"=""
- "usp10"="native,builtin"
+ [Software\\Tencent\\Plugin\\VAS\\1940915894] 1603801664
