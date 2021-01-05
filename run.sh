@@ -35,7 +35,7 @@ extract_archive()
 BOTTLENAME="Deepin-QQ"
 APPVER="9.3.2deepin14"
 WINEPREFIX="$HOME/.deepinwine/$BOTTLENAME"
-QQ_VER="9.4.2.27655"
+QQ_VER="9.4.2.27658"
 EXEC_PATH="c:/Program Files/Tencent/QQ/Bin/QQ.exe"
 START_SHELL_PATH="$HOME/.deepinwine/deepin-wine-helper/run_v3.sh"
 QQ_INSTALLER="PCQQ2020"
@@ -98,12 +98,12 @@ Run()
     if [ -n "$EXEC_PATH" ];then
         if [ ! -f "$WINEPREFIX/reinstalled" ];then
             touch $WINEPREFIX/reinstalled
-            env WINEDLLOVERRIDES="winemenubuilder.exe=d" $START_SHELL_PATH $BOTTLENAME $APPVER "$QQ_INSTALLER_PATH" "$@"
+            env LC_ALL=zh_CN.UTF-8 WINEDLLOVERRIDES="winemenubuilder.exe=d" $START_SHELL_PATH $BOTTLENAME $APPVER "$QQ_INSTALLER_PATH" "$@"
         else
-            $START_SHELL_PATH $BOTTLENAME $APPVER "$EXEC_PATH" "$@"
+            env LC_ALL=zh_CN.UTF-8 $START_SHELL_PATH $BOTTLENAME $APPVER "$EXEC_PATH" "$@"
         fi
     else
-        $START_SHELL_PATH $BOTTLENAME $APPVER "uninstaller.exe" "$@"
+        env LC_ALL=zh_CN.UTF-8 $START_SHELL_PATH $BOTTLENAME $APPVER "uninstaller.exe" "$@"
     fi
 }
 

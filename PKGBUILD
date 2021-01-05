@@ -2,11 +2,11 @@
 # Maintainer: taotieren <admin@taotieren.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.4.2.27655
+pkgver=9.4.2.27658
 qq_installer=PCQQ2020
 deepinqqver=9.3.2deepin14
 debpkgname="com.qq.im.deepin"
-pkgrel=2
+pkgrel=1
 pkgdesc="Tencent QQ on Deepin Wine(${debpkgname}) For Archlinux"
 arch=("x86_64")
 url="https://im.qq.com/"
@@ -17,12 +17,10 @@ install="deepin-wine-qq.install"
 _mirror="https://cdn-package-store6.deepin.com"
 source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${deepinqqver}_i386.deb"
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
-  "run.sh"
-  "reg.patch")
+  "run.sh")
 md5sums=('e12c4b26c791ca32cdc96e5441341148'
-  'd52fb334557a14caa2e69ac43b2c29eb'
-  '3476136a1f6a1dc5477dfe40da88df36'
-  'eb76d1e0e8f325856cec59697ae8a256')
+  '107ca85564926ef0119d471cfea66f35'
+  'c9f6403304f0e246f1f9de067ddcc4e0')
 
 build() {
   msg "Extracting DPKG package ..."
@@ -34,8 +32,8 @@ build() {
   7z x -aoa "${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/files.7z" -o"${srcdir}/deepinqqdir"
   msg "Cleaning up the original package directory ..."
   rm -r "${srcdir}/deepinqqdir/drive_c/Program Files/Tencent/QQ"
-  msg "Patching reg files ..."
-  patch -p1 -d "${srcdir}/deepinqqdir/" < "${srcdir}/reg.patch"
+  #msg "Patching reg files ..."
+  #patch -p1 -d "${srcdir}/deepinqqdir/" < "${srcdir}/reg.patch"
   msg "Creating font file link ..."
   ln -sf "/usr/share/fonts/wenquanyi/wqy-microhei/wqy-microhei.ttc" "${srcdir}/deepinqqdir/drive_c/windows/Fonts/wqy-microhei.ttc"
   msg "Copying latest QQ installer to ${srcdir}/deepinqqdir/drive_c/Program Files/Tencent/ ..."
@@ -56,6 +54,6 @@ package() {
   cp ${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/helper_archive* "${pkgdir}/opt/apps/${debpkgname}/files/"
   install -m755 "${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/gtkGetFileNameDlg" "${pkgdir}/opt/apps/${debpkgname}/files/"
   md5sum "${srcdir}/files.7z" | awk '{ print $1 }' > "${pkgdir}/opt/apps/${debpkgname}/files/files.md5sum"
-  install -m644 "${srcdir}/reg.patch" "${pkgdir}/opt/apps/${debpkgname}/files/"
+  #install -m644 "${srcdir}/reg.patch" "${pkgdir}/opt/apps/${debpkgname}/files/"
   install -m755 "${srcdir}/run.sh" "${pkgdir}/opt/apps/${debpkgname}/files/"
 }
