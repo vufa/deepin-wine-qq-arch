@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.4.2.27658-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.4.2.27666-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -243,6 +243,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine5 winecfg
 <details open>
 <summary>2021</summary>
 
+* 2021-01-19 QQ-9.4.2.27666
 * 2021-01-05 QQ-9.4.2.27658
 
 </details>

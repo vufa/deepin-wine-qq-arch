@@ -35,7 +35,7 @@ extract_archive()
 BOTTLENAME="Deepin-QQ"
 APPVER="9.3.2deepin14"
 WINEPREFIX="$HOME/.deepinwine/$BOTTLENAME"
-QQ_VER="9.4.2.27658"
+QQ_VER="9.4.2.27666"
 EXEC_PATH="c:/Program Files/Tencent/QQ/Bin/QQ.exe"
 START_SHELL_PATH="$HOME/.deepinwine/deepin-wine-helper/run_v3.sh"
 QQ_INSTALLER="PCQQ2020"
