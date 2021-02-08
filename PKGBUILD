@@ -2,25 +2,25 @@
 # Maintainer: taotieren <admin@taotieren.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.4.2.27666
-qq_installer=PCQQ2020
-deepinqqver=9.3.2deepin14
+pkgver=9.4.3.27712
+qq_installer=PCQQ2021
+debpkgver=9.3.2deepin14
 debpkgname="com.qq.im.deepin"
 pkgrel=1
-pkgdesc="Tencent QQ on Deepin Wine(${debpkgname}) For Archlinux"
+pkgdesc="Tencent QQ on Deepin Wine5(${debpkgname}) For Archlinux"
 arch=("x86_64")
 url="https://im.qq.com/"
 license=('custom')
 depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
-_mirror="https://cdn-package-store6.deepin.com"
-source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${deepinqqver}_i386.deb"
+_mirror="https://community-store-packages.deepin.com"
+source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgver}_i386.deb"
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
   "run.sh")
 md5sums=('e12c4b26c791ca32cdc96e5441341148'
-  '9dd65c4b03301b7273c61a061e904bf5'
-  'd1c39a33cafba0ee674371b83e16bea9')
+  'ff9d6afa4860c731623e81ef853603e2'
+  '43f366f54b18fe29795da926751d1f2b')
 
 build() {
   msg "Extracting DPKG package ..."

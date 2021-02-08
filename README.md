@@ -6,7 +6,7 @@
     <img src="https://travis-ci.org/countstarlight/deepin-wine-qq-arch.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.4.2.27666-blue.svg" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.4.3.27712-blue.svg" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq.svg" alt="AUR Version">
@@ -66,7 +66,7 @@ Deepin 打包的 QQ 容器移植到 Archlinux，不依赖 `deepin-wine5`，包�
 
 ### 从AUR安装
 
-已添加到 AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装:
+已添加到 AUR [deepin-wine-qq](https://aur.archlinux.org/packages/deepin-wine-qq/)，可使用 `yay` 或 `yaourt` 安装：
 
 ```shell
 yay -S deepin-wine-qq
@@ -111,8 +111,10 @@ EXEC_PATH="c:/Program Files/Tencent/QQ/Bin/QQ.exe"
 
 ## 兼容性记录
 
-|    版本     |  wine  |   兼容性   |             备注             | deepin-wine | 兼容性 | 备注 |
+|     QQ      |  wine  |   兼容性   |             备注             | deepin-wine | 兼容性 | 备注 |
 | :---------: | :----: | :--------: | :--------------------------: | :---------: | :----: | :--: |
+| 9.4.3.27712 |  6.1   |    部分    | 部分字体显示为方框且性能较差 |  5.0.16-1   |  支持  |      |
+| 9.4.2.27666 |  6.0   |    部分    | 部分字体显示为方框且性能较差 |  5.0.16-1   |  支持  |      |
 | 9.4.2.27658 |  5.22  |    部分    | 部分字体显示为方框且性能较差 |  5.0.16-1   |  支持  |      |
 | 9.4.2.27655 |  5.22  |    支持    |                              |  5.0.16-1   |  支持  |      |
 | 9.4.1.27572 |  5.22  | **不支持** |                              |  5.0.16-1   |  支持  |      |
@@ -163,7 +165,7 @@ sudo pacman -Rns deepin-wine5
 
 ### 从 `deepin-wine 2.x` 迁移
 
-若之前使用的是 `deepin-wine 2.x`，更新到 `deepin-wine-qq v9.4.2.27655-1` 后会自动切换回 `wine`，运行命令：
+若之前使用的是 `deepin-wine 2.x`，更新到 `deepin-wine-qq v9.4.2.27655-1` 及之后的版本会自动切换回 `wine`，运行命令：
 
 ```bash
 /opt/apps/com.qq.im.deepin/files/run.sh -d
@@ -243,6 +245,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine5 winecfg
 <details open>
 <summary>2021</summary>
 
+* 2021-02-08 QQ-9.4.3.27712
 * 2021-01-19 QQ-9.4.2.27666
 * 2021-01-05 QQ-9.4.2.27658
 
@@ -251,7 +254,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine5 winecfg
 <summary>2020</summary>
 
 * 2020-12-29 QQ-9.4.2.27655
-* 2020-12-24 QQ-9.4.1.27572
+* 2020-12-24 QQ-9.4.1.27572 com.qq.im.deepin_9.3.2deepin14
 * 2020-11-12 QQ-9.4.0.27525
 * 2020-10-18 QQ-9.3.9.27427
 * 2020-09-13 QQ-9.3.8.27381
