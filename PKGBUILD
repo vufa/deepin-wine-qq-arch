@@ -4,9 +4,9 @@
 pkgname=deepin-wine-qq
 pkgver=9.4.3.27712
 qq_installer=PCQQ2021
-debpkgver=9.3.2deepin14
+debpkgver=9.3.2deepin20
 debpkgname="com.qq.im.deepin"
-pkgrel=1
+pkgrel=2
 pkgdesc="Tencent QQ on Deepin Wine5(${debpkgname}) For Archlinux"
 arch=("x86_64")
 url="https://im.qq.com/"
@@ -18,9 +18,9 @@ _mirror="https://community-store-packages.deepin.com"
 source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgver}_i386.deb"
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
   "run.sh")
-md5sums=('e12c4b26c791ca32cdc96e5441341148'
+md5sums=('5fdc20e614d945bd2ba5251420872479'
   'ff9d6afa4860c731623e81ef853603e2'
-  '43f366f54b18fe29795da926751d1f2b')
+  '118cd4afe9d2a4c64fd5b5da5f7c7968')
 
 build() {
   msg "Extracting DPKG package ..."
@@ -52,7 +52,7 @@ package() {
   install -d "${pkgdir}/opt/apps/${debpkgname}/files"
   install -m644 "${srcdir}/files.7z" "${pkgdir}/opt/apps/${debpkgname}/files/"
   cp ${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/helper_archive* "${pkgdir}/opt/apps/${debpkgname}/files/"
-  install -m755 "${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/gtkGetFileNameDlg" "${pkgdir}/opt/apps/${debpkgname}/files/"
+  #install -m755 "${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/gtkGetFileNameDlg" "${pkgdir}/opt/apps/${debpkgname}/files/"
   md5sum "${srcdir}/files.7z" | awk '{ print $1 }' > "${pkgdir}/opt/apps/${debpkgname}/files/files.md5sum"
   #install -m644 "${srcdir}/reg.patch" "${pkgdir}/opt/apps/${debpkgname}/files/"
   install -m755 "${srcdir}/run.sh" "${pkgdir}/opt/apps/${debpkgname}/files/"

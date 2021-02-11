@@ -33,7 +33,7 @@ extract_archive()
 }
 
 BOTTLENAME="Deepin-QQ"
-APPVER="9.3.2deepin14"
+APPVER="9.3.2deepin20"
 WINEPREFIX="$HOME/.deepinwine/$BOTTLENAME"
 QQ_VER="9.4.3.27712"
 EXEC_PATH="c:/Program Files/Tencent/QQ/Bin/QQ.exe"

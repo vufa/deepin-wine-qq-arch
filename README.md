@@ -245,6 +245,7 @@ env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine5 winecfg
 <details open>
 <summary>2021</summary>
 
+* 2021-02-11 QQ-9.4.3.27712 9.3.2deepin20
 * 2021-02-08 QQ-9.4.3.27712
 * 2021-01-19 QQ-9.4.2.27666
 * 2021-01-05 QQ-9.4.2.27658
