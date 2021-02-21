@@ -20,7 +20,7 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgv
   "run.sh")
 md5sums=('5fdc20e614d945bd2ba5251420872479'
   'ff9d6afa4860c731623e81ef853603e2'
-  '118cd4afe9d2a4c64fd5b5da5f7c7968')
+  '5103965c2dcac58262ea35f029b2067e')
 
 build() {
   msg "Extracting DPKG package ..."
