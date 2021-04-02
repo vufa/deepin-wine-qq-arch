@@ -1,7 +1,7 @@
 pkgbase = deepin-wine-qq
 	pkgdesc = Tencent QQ on Deepin Wine5(com.qq.im.deepin) For Archlinux
 	pkgver = 9.4.5.27743
-	pkgrel = 2
+	pkgrel = 1
 	url = https://im.qq.com/
 	install = deepin-wine-qq.install
 	arch = x86_64
