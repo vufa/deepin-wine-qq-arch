@@ -35,7 +35,7 @@ extract_archive()
 BOTTLENAME="Deepin-QQ"
 APPVER="9.3.2deepin20"
 WINEPREFIX="$HOME/.deepinwine/$BOTTLENAME"
-QQ_VER="9.4.6.27770"
+QQ_VER="9.4.7.27805"
 EXEC_PATH="c:/Program Files/Tencent/QQ/Bin/QQ.exe"
 START_SHELL_PATH="$HOME/.deepinwine/deepin-wine-helper/run_v3.sh"
 QQ_INSTALLER="PCQQ2021"
@@ -79,8 +79,6 @@ SwitchToDeepinWine()
     msg 0 "Redeploying app ..."
     extract_archive "$ARCHIVE_FILE_DIR/helper_archive.7z" "$ARCHIVE_FILE_DIR/helper_archive.md5sum" "$SPECIFY_SHELL_DIR"
     $START_SHELL_PATH $BOTTLENAME $APPVER "$EXEC_PATH" -r
-    #msg 0 "Reversing the patch ..."
-    #patch -p1 -R -d  ${WINEPREFIX} < $ARCHIVE_FILE_DIR/reg.patch
     echo "5" > $WINEPREFIX/deepin
     rm -f $WINEPREFIX/reinstalled
     msg 0 "Done."
@@ -108,6 +106,9 @@ Run()
         if [ ! -f "$WINEPREFIX/reinstalled" ];then
             touch $WINEPREFIX/reinstalled
             env LC_ALL=zh_CN.UTF-8 WINEDLLOVERRIDES="winemenubuilder.exe=d" $START_SHELL_PATH $BOTTLENAME $APPVER "$QQ_INSTALLER_PATH" "$@"
+            if [ $APPRUN_CMD = "deepin-wine5" ]; then
+                echo "5" > $WINEPREFIX/deepin
+            fi
         else
             env LC_ALL=zh_CN.UTF-8 $START_SHELL_PATH $BOTTLENAME $APPVER "$EXEC_PATH" "$@"
         fi
