@@ -11,5 +11,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Validate package
-        uses: datakrama/archlinux-package-action@v1
+      - name: Build archlinux package
+        uses: mijailr/arch-makepkg-action@v1
