@@ -27,6 +27,4 @@ jobs:
             lib32-openal
             lib32-mpg123
             lib32-gnutls
-          scripts: >
-            "makepkg"
-            "./gen.sh -m"
+          scripts: "makepkg && ./gen.sh -m"
