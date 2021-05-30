@@ -13,7 +13,3 @@ jobs:
 
       - name: Validate package
         uses: datakrama/archlinux-package-action@v1
-        with:
-          path: $GITHUB_WORKSPACE/package
-          flags: '-s'
-          namcap: false
