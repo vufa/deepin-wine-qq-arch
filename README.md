@@ -2,8 +2,8 @@
 ========
 
 <p align="center">
-  <a href="https://travis-ci.org/countstarlight/deepin-wine-qq-arch">
-    <img src="https://img.shields.io/travis/countstarlight/deepin-wine-qq-arch?&logo=travis&style=flat-square" alt="Build Status">
+  <a href="https://github.com/countstarlight/deepin-wine-qq-arch/actions">
+    <img src="https://img.shields.io/github/workflow/status/countstarlight/deepin-wine-qq-arch/CI/action?logo=github&style=flat-square" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
     <img src="https://img.shields.io/badge/QQ-9.4.7.27805-blue?style=flat-square&logo=tencent-qq" alt="QQ Version">
@@ -75,7 +75,7 @@ yay -S deepin-wine-qq
 
 ### 用安装包安装
 
-> 由 [Travis CI](https://travis-ci.org/countstarlight/deepin-wine-qq-arch) 在 Docker 容器 [countstarlight/arch-travis](https://hub.docker.com/r/countstarlight/arch-travis) 中自动构建的 ArchLinux 安装包
+> 由 [GitHub Action](https://github.com/countstarlight/deepin-wine-qq-arch/actions) 在 Docker 容器 [countstarlight/makepkg](https://hub.docker.com/repository/docker/countstarlight/makepkg) 中自动构建的 ArchLinux 安装包
 
 在 [GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases) 页面下载后缀为 `.pkg.tar.xz` 或 `.pkg.tar.zst` 的安装包，使用`pacman`安装：
 
