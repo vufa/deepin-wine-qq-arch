@@ -1,11 +1,9 @@
-name: CI
+name: release
 
 on:
-  schedule:
-    - cron:  '* * * * 0'
   push:
-    branches:
-    - action
+    tags:
+    - '*'
 
 jobs:
   build:
@@ -31,3 +29,9 @@ jobs:
             lib32-mpg123
             lib32-gnutls
           scripts: "makepkg && ./gen.sh -m"
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: deepin-wine-qq*.pkg*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
