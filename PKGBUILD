@@ -14,7 +14,7 @@ license=('custom')
 depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
-_mirror="https://community-store-packages.deepin.com"
+_mirror="https://cdn-package-store6.deepin.com"
 source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgver}_i386.deb"
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
   "run.sh")
