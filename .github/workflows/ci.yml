@@ -6,6 +6,8 @@ on:
   push:
     branches:
     - action
+    tags:
+    - '*'
 
 jobs:
   build:
