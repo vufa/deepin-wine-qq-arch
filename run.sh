@@ -35,7 +35,7 @@ extract_archive()
 BOTTLENAME="Deepin-QQ"
 APPVER="9.3.2deepin20"
 WINEPREFIX="$HOME/.deepinwine/$BOTTLENAME"
-QQ_VER="9.4.7.27805"
+QQ_VER="9.4.8.27843"
 EXEC_PATH="c:/Program Files/Tencent/QQ/Bin/QQ.exe"
 START_SHELL_PATH="$HOME/.deepinwine/deepin-wine-helper/run_v3.sh"
 QQ_INSTALLER="PCQQ2021"
@@ -65,7 +65,7 @@ SwitchToDeepinWine()
             msg 1 "Need to install 'yay' or 'yaourt' first." >&2
             exit 1
         else
-            $PACKAGE_MANAGER="yaourt"
+            PACKAGE_MANAGER="yaourt"
         fi
     fi
     for p in ${DEEPIN_WINE_DEPENDS}; do
