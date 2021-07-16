@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/github/workflow/status/countstarlight/deepin-wine-qq-arch/CI/action?logo=github&style=flat-square" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.4.9.27847-blue?style=flat-square&logo=tencent-qq" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.4.9.27849-blue?style=flat-square&logo=tencent-qq" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq?label=AUR&logo=arch-linux&style=flat-square" alt="AUR Version">
@@ -240,6 +240,7 @@ QQ在本地保存的数据不会被删除，如保存在用户文档下的数据
 <details open>
 <summary>2021</summary>
 
+* 2021-07-16 QQ-9.4.9.27849
 * 2021-07-09 QQ-9.4.9.27847
 * 2021-06-14 QQ-9.4.8.27843
 * 2021-05-11 QQ-9.4.7.27805
