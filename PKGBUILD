@@ -3,6 +3,7 @@
 
 pkgname=deepin-wine-qq
 pkgver=9.4.9.27849
+helperver=5.1.13-1
 qq_installer=PCQQ2021
 debpkgver=9.3.2deepin20
 debpkgname="com.qq.im.deepin"
@@ -52,6 +53,7 @@ package() {
   install -d "${pkgdir}/opt/apps/${debpkgname}/files"
   install -m644 "${srcdir}/files.7z" "${pkgdir}/opt/apps/${debpkgname}/files/"
   cp ${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/helper_archive* "${pkgdir}/opt/apps/${debpkgname}/files/"
+  echo $helperver > "${pkgdir}/opt/apps/${debpkgname}/files/helper_archive.md5sum" # FIXME
   #install -m755 "${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/gtkGetFileNameDlg" "${pkgdir}/opt/apps/${debpkgname}/files/"
   md5sum "${srcdir}/files.7z" | awk '{ print $1 }' > "${pkgdir}/opt/apps/${debpkgname}/files/files.md5sum"
   #install -m644 "${srcdir}/reg.patch" "${pkgdir}/opt/apps/${debpkgname}/files/"
