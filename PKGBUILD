@@ -2,7 +2,7 @@
 # Maintainer: taotieren <admin@taotieren.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.4.9.27849
+pkgver=9.5.0.27852
 helperver=5.1.13-1
 qq_installer=PCQQ2021
 debpkgver=9.3.2deepin20
@@ -12,7 +12,7 @@ pkgdesc="Tencent QQ on Deepin Wine5(${debpkgname}) For Archlinux"
 arch=("x86_64")
 url="https://im.qq.com/"
 license=('custom')
-depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
+depends=('p7zip' 'deepin-wine6-stable' 'deepin-wine-helper' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://cdn-package-store6.deepin.com"
@@ -20,8 +20,8 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgv
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
   "run.sh")
 md5sums=('5fdc20e614d945bd2ba5251420872479'
-  'ff317c202b61e88c846b2c5b7384c130'
-  '94d77ee0095f51d99537d6a0624fcdef')
+  'c685254049819c9d277916d5d7e977e7'
+  'dbcec8bf85937e583d5016244b21e784')
 
 build() {
   msg "Extracting DPKG package ..."
@@ -52,8 +52,8 @@ package() {
   msg "Copying deepin files ..."
   install -d "${pkgdir}/opt/apps/${debpkgname}/files"
   install -m644 "${srcdir}/files.7z" "${pkgdir}/opt/apps/${debpkgname}/files/"
-  cp ${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/helper_archive* "${pkgdir}/opt/apps/${debpkgname}/files/"
-  echo $helperver > "${pkgdir}/opt/apps/${debpkgname}/files/helper_archive.md5sum" # FIXME
+  # cp ${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/helper_archive* "${pkgdir}/opt/apps/${debpkgname}/files/"
+  # echo $helperver > "${pkgdir}/opt/apps/${debpkgname}/files/helper_archive.md5sum" # FIXME
   #install -m755 "${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/gtkGetFileNameDlg" "${pkgdir}/opt/apps/${debpkgname}/files/"
   md5sum "${srcdir}/files.7z" | awk '{ print $1 }' > "${pkgdir}/opt/apps/${debpkgname}/files/files.md5sum"
   #install -m644 "${srcdir}/reg.patch" "${pkgdir}/opt/apps/${debpkgname}/files/"
