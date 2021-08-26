@@ -3,7 +3,6 @@
 
 pkgname=deepin-wine-qq
 pkgver=9.5.0.27852
-helperver=5.1.13-1
 qq_installer=PCQQ2021
 debpkgver=9.3.2deepin20
 debpkgname="com.qq.im.deepin"
@@ -21,7 +20,7 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgv
   "run.sh")
 md5sums=('5fdc20e614d945bd2ba5251420872479'
   'c685254049819c9d277916d5d7e977e7'
-  'dbcec8bf85937e583d5016244b21e784')
+  '30839f5549a405b94ef38093162ebc44')
 
 build() {
   msg "Extracting DPKG package ..."
@@ -33,6 +32,7 @@ build() {
   7z x -aoa "${srcdir}/dpkgdir/opt/apps/${debpkgname}/files/files.7z" -o"${srcdir}/deepinqqdir"
   msg "Cleaning up the original package directory ..."
   rm -r "${srcdir}/deepinqqdir/drive_c/Program Files/Tencent/QQ"
+  mkdir -p "${srcdir}/deepinqqdir/drive_c/Program Files/Tencent/QQ/Bin"
   #msg "Patching reg files ..."
   #patch -p1 -d "${srcdir}/deepinqqdir/" < "${srcdir}/reg.patch"
   msg "Creating font file link ..."

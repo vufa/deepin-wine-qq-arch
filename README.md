@@ -40,6 +40,7 @@ Deepin 打包的 QQ 容器(`com.qq.im.deepin`)移植到 Archlinux，包含定制
     - [网络连接状态改变后不能重连](#网络连接状态改变后不能重连)
     - [高分辨率屏幕支持](#高分辨率屏幕支持)
     - [GNOME 桌面上的悬浮窗口问题](#gnome-桌面上的悬浮窗口问题)
+    - [不能启动/卡死/卡顿问题](#不能启动卡死卡顿问题)
     - [使用其他字体](#使用其他字体)
 - [感谢](#感谢)
 - [更新日志](#更新日志)
@@ -206,6 +207,13 @@ QQ在本地保存的数据不会被删除，如保存在用户文档下的数据
 > 根据 [deepin-wine-tim-arch#2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)，由[EricDracula](https://github.com/EricDracula)提供的方法
 
 安装 GNOME 插件: [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)
+
+### 不能启动/卡死/卡顿问题
+
+> 参照 [deepin-wine-qq-arch#19](https://github.com/countstarlight/deepin-wine-qq-arch/issues/19)
+
+用原版 `dwrite.dll` 替换 `$HOME/.deepinwine/Deepin-QQ/drive_c/windows/system32/dwrite.dll`
+再参照[设置](#设置)打开 `winecfg`，在 `Libraries` 中新增一项 `dwrite`，将新增的 `dwrite` 设置为原装先于内建(Native then Builtin)。
 
 ### 使用其他字体
 

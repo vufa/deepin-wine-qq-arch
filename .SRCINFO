@@ -24,6 +24,6 @@ pkgbase = deepin-wine-qq
 	source = run.sh
 	md5sums = 5fdc20e614d945bd2ba5251420872479
 	md5sums = c685254049819c9d277916d5d7e977e7
-	md5sums = dbcec8bf85937e583d5016244b21e784
+	md5sums = 30839f5549a405b94ef38093162ebc44
 
 pkgname = deepin-wine-qq
