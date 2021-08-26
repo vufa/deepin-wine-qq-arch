@@ -42,11 +42,8 @@ Run()
     if [ -n "$EXEC_PATH" ];then
         if [ ! -f "$WINEPREFIX/reinstalled" ];then
             # run installer
-            touch $WINEPREFIX/reinstalled
             env LC_ALL=zh_CN.UTF-8 WINEDLLOVERRIDES="winemenubuilder.exe=d" $START_SHELL_PATH $BOTTLENAME $APPVER "$QQ_INSTALLER_PATH" "$@"
-            if [ $APPRUN_CMD = "deepin-wine5" ]; then
-                echo "5" > $WINEPREFIX/deepin
-            fi
+            touch $WINEPREFIX/reinstalled
         else
             env LC_ALL=zh_CN.UTF-8 $START_SHELL_PATH $BOTTLENAME $APPVER "$EXEC_PATH" "$@"
         fi
