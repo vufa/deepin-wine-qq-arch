@@ -40,6 +40,7 @@ Deepin 打包的 QQ 容器(`com.qq.im.deepin`)移植到 Archlinux，包含定制
     - [网络连接状态改变后不能重连](#网络连接状态改变后不能重连)
     - [高分辨率屏幕支持](#高分辨率屏幕支持)
     - [GNOME 桌面上的悬浮窗口问题](#gnome-桌面上的悬浮窗口问题)
+    - [防止使用系统安装的 Windows 字体](#防止使用系统安装的-windows-字体)
     - [不能启动/卡死/卡顿问题](#不能启动卡死卡顿问题)
     - [使用其他字体](#使用其他字体)
 - [感谢](#感谢)
@@ -208,11 +209,56 @@ QQ在本地保存的数据不会被删除，如保存在用户文档下的数据
 
 安装 GNOME 插件: [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)
 
+
+### 防止使用系统安装的 Windows 字体
+
+> 参照 https://blog.zhullyb.top/2021/04/27/hide-simsun-from-deepin-wine-tim/
+
+假设 Windows 字体都安装在 `/usr/share/fonts/TTF/` 目录下
+
+先安装 `bubblewrap`：
+```bash
+sudo pacman -S bubblewrap --needed
+```
+
+然后每次用如下命令启动QQ:
+```bash
+bwrap --dev-bind / / --tmpfs /usr/share/fonts/TTF/ /opt/apps/com.qq.im.deepin/files/run.sh
+```
+
+也可以修改 `deepin-wine-qq` 的应用菜单 `/usr/share/applications/com.qq.im.deepin.desktop`：
+```diff
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+X-Created-By=Deepin WINE Team
+Categories=chat;Network;
+Icon=com.qq.im.deepin
+-Exec="/opt/apps/com.qq.im.deepin/files/run.sh"
++Exec="bwrap --dev-bind / / --tmpfs /usr/share/fonts/TTF/ /opt/apps/com.qq.im.deepin/files/run.sh"
+Name=QQ
+Name[zh_CN]=QQ
+Comment=Tencent QQ Client on Deepin Wine
+StartupWMClass=QQ.exe
+MimeType=
+
+```
+就可以和之前一样通过应用菜单中的QQ图标启动
+
+:warning: **注意：对 `/usr/share/applications/com.qq.im.deepin.desktop` 的修改会在重装或更新后被覆盖**
+
 ### 不能启动/卡死/卡顿问题
+
+> 由 [AUR](https://aur.archlinux.org/packages/com.tencent.meeting.deepin/) 的 [huyz](https://aur.archlinux.org/account/huyz) 提供的方法
+
+如果你在系统里安装了 windows 的宋体（simsun.ttc），则需复制一份 `simsun.ttc` 到 wine 容器（`$HOME/.deepinwine/Deepin-QQ/drive_c/windows/fonts`）里，否则程序可能会崩溃。
 
 > 参照 [deepin-wine-qq-arch#19](https://github.com/countstarlight/deepin-wine-qq-arch/issues/19)
 
 用原版 `dwrite.dll` 替换 `$HOME/.deepinwine/Deepin-QQ/drive_c/windows/system32/dwrite.dll`
+
 再参照[设置](#设置)打开 `winecfg`，在 `Libraries` 中新增一项 `dwrite`，将新增的 `dwrite` 设置为原装先于内建(Native then Builtin)。
 
 ### 使用其他字体
