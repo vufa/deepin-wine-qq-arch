@@ -2,7 +2,7 @@
 # Maintainer: taotieren <admin@taotieren.com>
 
 pkgname=deepin-wine-qq
-pkgver=9.5.0.27852
+pkgver=9.5.1.27888
 qq_installer=PCQQ2021
 debpkgver=9.3.2deepin20
 debpkgname="com.qq.im.deepin"
@@ -19,8 +19,8 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgv
   "${qq_installer}-${pkgver}.exe::https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/${qq_installer}.exe"
   "run.sh")
 md5sums=('5fdc20e614d945bd2ba5251420872479'
-  'c685254049819c9d277916d5d7e977e7'
-  '30839f5549a405b94ef38093162ebc44')
+  '771fde2d9fb52617d27b1cec6d4ca770'
+  'da3fffc3319a883f781798003171a9f5')
 
 build() {
   msg "Extracting DPKG package ..."

@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/github/workflow/status/countstarlight/deepin-wine-qq-arch/CI/action?logo=github&style=flat-square" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.5.0.27852-blue?style=flat-square&logo=tencent-qq" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.5.1.27888-blue?style=flat-square&logo=tencent-qq" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq?label=AUR&logo=arch-linux&style=flat-square" alt="AUR Version">
@@ -280,6 +280,7 @@ MimeType=
 <details open>
 <summary>2021</summary>
 
+* 2021-10-08 QQ-9.5.1.27888
 * 2021-08-25 QQ-9.5.0.27852
 * 2021-07-16 QQ-9.4.9.27849
 * 2021-07-09 QQ-9.4.9.27847
