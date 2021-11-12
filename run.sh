@@ -5,21 +5,21 @@
 #   Author:     Li LongYu <lilongyu@linuxdeepin.com>
 #               Peng Hao <penghao@linuxdeepin.com>
 
-#               Codist <countstarlight@gmail.com>
+#               Vufa <countstarlight@gmail.com>
 
 version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
 
 BOTTLENAME="Deepin-QQ"
 APPVER="9.3.2deepin20"
 WINEPREFIX="$HOME/.deepinwine/$BOTTLENAME"
-QQ_VER="9.5.1.27888"
+QQ_VER="9.5.2.27897"
 EXEC_PATH="c:/Program Files/Tencent/QQ/Bin/QQ.exe"
 START_SHELL_PATH="/opt/deepinwine/tools/run_v4.sh"
 QQ_INSTALLER="PCQQ2021"
 QQ_INSTALLER_PATH="c:/Program Files/Tencent/$QQ_INSTALLER-$QQ_VER.exe"
 export MIME_TYPE=""
 export DEB_PACKAGE_NAME="com.qq.im.deepin"
-export APPRUN_CMD="deepin-wine6-stable"
+export APPRUN_CMD="deepin-wine5"
 DISABLE_ATTACH_FILE_DIALOG=""
 
 export SPECIFY_SHELL_DIR=`dirname $START_SHELL_PATH`

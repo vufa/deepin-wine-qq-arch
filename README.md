@@ -2,26 +2,26 @@
 ========
 
 <p align="center">
-  <a href="https://github.com/countstarlight/deepin-wine-qq-arch/actions">
-    <img src="https://img.shields.io/github/workflow/status/countstarlight/deepin-wine-qq-arch/CI/action?logo=github&style=flat-square" alt="Build Status">
+  <a href="https://github.com/vufa/deepin-wine-qq-arch/actions">
+    <img src="https://img.shields.io/github/workflow/status/vufa/deepin-wine-qq-arch/CI/action?logo=github&style=flat-square" alt="Build Status">
   </a>
   <a href="https://im.qq.com/download/">
-    <img src="https://img.shields.io/badge/QQ-9.5.1.27888-blue?style=flat-square&logo=tencent-qq" alt="QQ Version">
+    <img src="https://img.shields.io/badge/QQ-9.5.2.27897-blue?style=flat-square&logo=tencent-qq" alt="QQ Version">
   </a>
   <a href="https://aur.archlinux.org/packages/deepin-wine-qq/">
     <img src="https://img.shields.io/aur/version/deepin-wine-qq?label=AUR&logo=arch-linux&style=flat-square" alt="AUR Version">
   </a>
-  <a href="https://github.com/countstarlight/deepin-wine-qq-arch/releases">
-    <img src="https://img.shields.io/github/downloads/countstarlight/deepin-wine-qq-arch/total?logo=github&style=flat-square" alt="GitHub Release">
+  <a href="https://github.com/vufa/deepin-wine-qq-arch/releases">
+    <img src="https://img.shields.io/github/downloads/vufa/deepin-wine-qq-arch/total?logo=github&style=flat-square" alt="GitHub Release">
   </a>
-  <a href="https://github.com/countstarlight/deepin-wine-qq-arch/issues">
-    <img src="https://img.shields.io/github/issues/countstarlight/deepin-wine-qq-arch?logo=github&style=flat-square" alt="GitHub Issues">
+  <a href="https://github.com/vufa/deepin-wine-qq-arch/issues">
+    <img src="https://img.shields.io/github/issues/vufa/deepin-wine-qq-arch?logo=github&style=flat-square" alt="GitHub Issues">
   </a>
 </p>
 
 Deepin 打包的 QQ 容器(`com.qq.im.deepin`)移植到 Archlinux，包含定制的运行脚本，QQ 安装包替换为官方最新
 
-:warning: `deepin-wine-qq` 从 `v9.5.0.27852-1` 开始，默认使用AUR仓库 [deepin-wine6-stable](https://aur.archlinux.org/packages/deepin-wine6-stable/)，不再依赖 `wine`，可以进行一些清理操作来保持系统整洁，具体参照： [从 `wine`/`deepin-wine 2.x`/`deepin-wine5` 迁移](#从-winedeepin-wine-2xdeepin-wine5-迁移)
+:warning: `deepin-wine-qq` 从 `v9.5.2.27897-1` 开始，默认使用AUR仓库 [deepin-wine5](https://aur.archlinux.org/packages/deepin-wine5/)，不再依赖 `wine`，可以进行一些清理操作来保持系统整洁，具体参照： [从 `wine`/`deepin-wine 2.x` 迁移](#从-winedeepin-wine-2x-迁移)
 
 <!-- TOC -->
 
@@ -33,7 +33,7 @@ Deepin 打包的 QQ 容器(`com.qq.im.deepin`)移植到 Archlinux，包含定制
 - [兼容性记录](#兼容性记录)
 - [切换到 `deepin-wine`](#切换到-deepin-wine)
     - [自动切换(推荐)](#自动切换推荐)
-    - [从 `wine`/`deepin-wine 2.x`/`deepin-wine5` 迁移](#从-winedeepin-wine-2xdeepin-wine5-迁移)
+    - [从 `wine`/`deepin-wine 2.x` 迁移](#从-winedeepin-wine-2x-迁移)
 - [卸载](#卸载)
 - [常见问题及解决](#常见问题及解决)
     - [不能记住密码](#不能记住密码)
@@ -42,7 +42,7 @@ Deepin 打包的 QQ 容器(`com.qq.im.deepin`)移植到 Archlinux，包含定制
     - [GNOME 桌面上的悬浮窗口问题](#gnome-桌面上的悬浮窗口问题)
     - [防止使用系统安装的 Windows 字体](#防止使用系统安装的-windows-字体)
     - [不能启动/卡死/卡顿问题](#不能启动卡死卡顿问题)
-    - [使用其他字体](#使用其他字体)
+    - [字体发虚/使用其他字体](#字体发虚使用其他字体)
 - [感谢](#感谢)
 - [更新日志](#更新日志)
 
@@ -79,9 +79,9 @@ yay -S deepin-wine-qq
 
 ### 用安装包安装
 
-> 由 [GitHub Action](https://github.com/countstarlight/deepin-wine-qq-arch/actions) 在 Docker 容器 [countstarlight/makepkg](https://hub.docker.com/repository/docker/countstarlight/makepkg) 中自动构建的 ArchLinux 安装包
+> 由 [GitHub Action](https://github.com/vufa/deepin-wine-qq-arch/actions) 在 Docker 容器 [countstarlight/makepkg](https://hub.docker.com/r/countstarlight/makepkg) 中自动构建的 ArchLinux 安装包
 
-在 [GitHub Release](https://github.com/countstarlight/deepin-wine-qq-arch/releases) 页面下载后缀为 `.pkg.tar.xz` 或 `.pkg.tar.zst` 的安装包，使用`pacman`安装：
+在 [GitHub Release](https://github.com/vufa/deepin-wine-qq-arch/releases) 页面下载后缀为 `.pkg.tar.xz` 或 `.pkg.tar.zst` 的安装包，使用`pacman`安装：
 
 ```bash
 sudo pacman -U #下载的包名
@@ -96,7 +96,7 @@ md5sum -c *.md5
 ### 本地打包安装
 
 ```shell
- git clone https://github.com/countstarlight/deepin-wine-qq-arch.git
+ git clone https://github.com/vufa/deepin-wine-qq-arch.git
 
  cd deepin-wine-qq-arch
   
@@ -152,23 +152,28 @@ dpi，目录映射等可以在 `winecfg` 进行设置，打开 `winecfg` 的命�
 
 ## 切换到 `deepin-wine`
 
-:warning: `deepin-wine-qq` 从 `v9.5.0.27852-1` 开始，默认使用AUR仓库 [deepin-wine6-stable](https://aur.archlinux.org/packages/deepin-wine6-stable/)，无需再进行任何切换操作，对于之前的版本，可以查看[旧版README](https://github.com/countstarlight/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
+:warning: `deepin-wine-qq` 从 `v9.5.0.27852-1` 开始，默认使用AUR仓库 [deepin-wine5](https://aur.archlinux.org/packages/deepin-wine5/)，无需再进行任何切换操作，对于之前的版本，可以查看[旧版README](https://github.com/vufa/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
 
 ### 自动切换(推荐)
 
-对于之前的版本，可以查看[旧版README](https://github.com/countstarlight/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
+对于之前的版本，可以查看[旧版README](https://github.com/vufa/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
 
-### 从 `wine`/`deepin-wine 2.x`/`deepin-wine5` 迁移
+### 从 `wine`/`deepin-wine 2.x` 迁移
 
-更新到 `deepin-wine-qq v9.5.0.27852-1` 及之后的版本后，依赖变更为 `deepin-wine6-stable`，
+更新到 `deepin-wine-qq v9.5.0.27852-1` 及之后的版本后，依赖变更为 `deepin-wine5`，
 
-如果此时没有其他应用在使用 `wine` 和旧版 `deepin-wine`，就可以放心的卸载旧版 `wine`, `deepin-wine` 及其依赖：
+如果此时没有其他应用在使用 `wine`, `deepin-wine 2.x` 和 `deepin-wine6-stable`，就可以放心的卸载 `wine`, `deepin-wine 2.x` 和 `deepin-wine6-stable` 及其依赖：
 
 ```bash
+# 卸载 deepin-wine 2.x (如果有)
 sudo pacman -S lib32-freetype2 #用原版替换lib32-freetype2-infinality-ultimate
-sudo pacman -Rns deepin-wine xsettingsd # 卸载 deepin-wine 2.x (如果有)
-sudo pacman -Rns deepin-wine5 # 卸载 deepin-wine5 (如果有)
-sudo pacman -Rns wine wine-mono wine-gecko # 卸载 wine 及其依赖(如果有)
+sudo pacman -Rns deepin-wine xsettingsd # 卸载 deepin-wine 2.x
+
+# 卸载 deepin-wine6-stable (如果有)
+sudo pacman -Rns deepin-wine6-stable
+
+# 卸载 wine (如果有)
+sudo pacman -Rns wine wine-mono wine-gecko
 ```
 
 同时，`deepin-wine-helper` 改为使用AUR仓库[deepin-wine-helper](https://aur.archlinux.org/packages/deepin-wine-helper)，可以删除之前的 `deepin-wine-helper`：
@@ -193,11 +198,11 @@ QQ在本地保存的数据不会被删除，如保存在用户文档下的数据
 
 ### 不能记住密码
 
-对于之前的版本，可以查看[旧版README](https://github.com/countstarlight/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
+对于之前的版本，可以查看[旧版README](https://github.com/vufa/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
 
 ### 网络连接状态改变后不能重连
 
-对于之前的版本，可以查看[旧版README](https://github.com/countstarlight/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
+对于之前的版本，可以查看[旧版README](https://github.com/vufa/deepin-wine-qq-arch/blob/827052484c4fd05c165c28f4a227e1773a21332d/README.md)。
 
 ### 高分辨率屏幕支持
 
@@ -205,7 +210,7 @@ QQ在本地保存的数据不会被删除，如保存在用户文档下的数据
 
 ### GNOME 桌面上的悬浮窗口问题
 
-> 根据 [deepin-wine-tim-arch#2](https://github.com/countstarlight/deepin-wine-tim-arch/issues/2)，由[EricDracula](https://github.com/EricDracula)提供的方法
+> 根据 [deepin-wine-tim-arch#2](https://github.com/vufa/deepin-wine-tim-arch/issues/2)，由[EricDracula](https://github.com/EricDracula)提供的方法
 
 安装 GNOME 插件: [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)
 
@@ -255,17 +260,19 @@ MimeType=
 
 如果你在系统里安装了 windows 的宋体（simsun.ttc），则需复制一份 `simsun.ttc` 到 wine 容器（`$HOME/.deepinwine/Deepin-QQ/drive_c/windows/fonts`）里，否则程序可能会崩溃。
 
-> 参照 [deepin-wine-qq-arch#19](https://github.com/countstarlight/deepin-wine-qq-arch/issues/19)
+> 参照 [deepin-wine-qq-arch#19](https://github.com/vufa/deepin-wine-qq-arch/issues/19)
 
 用原版 `dwrite.dll` 替换 `$HOME/.deepinwine/Deepin-QQ/drive_c/windows/system32/dwrite.dll`
 
 再参照[设置](#设置)打开 `winecfg`，在 `Libraries` 中新增一项 `dwrite`，将新增的 `dwrite` 设置为原装先于内建(Native then Builtin)。
 
-### 使用其他字体
+### 字体发虚/使用其他字体
 
 默认使用文泉驿微米黑(`wqy-microhei`)字体，可以使用Windows平台常用字体替代，直接将字体文件或字体链接文件放置到字体文件夹就会生效，不会影响系统字体
 
 字体文件夹在：`$HOME/.deepinwine/Deepin-QQ/drive_c/windows/Fonts`
+
+经测试将 `微软雅黑` 伪装成 `宋体(simsun)` 的显示效果最好，具体可以参照 [bbs.deepin.org](https://bbs.deepin.org/zh/post/213530?offset=0&postId=1269543)，将 `fake_simsun.ttc` 放到字体文件夹
 
 ## 感谢
 
@@ -280,6 +287,7 @@ MimeType=
 <details open>
 <summary>2021</summary>
 
+* 2021-11-12 QQ-9.5.2.27897
 * 2021-10-08 QQ-9.5.1.27888
 * 2021-08-25 QQ-9.5.0.27852
 * 2021-07-16 QQ-9.4.9.27849
