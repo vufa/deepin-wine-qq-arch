@@ -7,8 +7,8 @@ pkgbase = deepin-wine-qq
 	arch = x86_64
 	license = custom
 	depends = p7zip
-	depends = deepin-wine5
-	depends = deepin-wine-helper
+	depends = deepin-wine5>=5.0.16-1
+	depends = deepin-wine-helper>=5.1.30_1-1
 	depends = xorg-xwininfo
 	depends = wqy-microhei
 	depends = lib32-alsa-lib
@@ -24,6 +24,6 @@ pkgbase = deepin-wine-qq
 	source = run.sh
 	md5sums = 5fdc20e614d945bd2ba5251420872479
 	md5sums = 04bbaf8b82667c251d68ed0347e17ba3
-	md5sums = fcaad6691c7e5c1d47f487aa213b97bf
+	md5sums = 77acb2943937363f5491203486f280b3
 
 pkgname = deepin-wine-qq

@@ -11,7 +11,7 @@ pkgdesc="Tencent QQ on Deepin Wine5(${debpkgname}) For Archlinux"
 arch=("x86_64")
 url="https://im.qq.com/"
 license=('custom')
-depends=('p7zip' 'deepin-wine5' 'deepin-wine-helper' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
+depends=('p7zip' 'deepin-wine5>=5.0.16-1' 'deepin-wine-helper>=5.1.30_1-1' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://com-store-packages.uniontech.com"
@@ -20,7 +20,7 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgv
   "run.sh")
 md5sums=('5fdc20e614d945bd2ba5251420872479'
   '04bbaf8b82667c251d68ed0347e17ba3'
-  'fcaad6691c7e5c1d47f487aa213b97bf')
+  '77acb2943937363f5491203486f280b3')
 
 build() {
   msg "Extracting DPKG package ..."
